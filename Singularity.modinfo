@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mod id="DECD3DF6-230E-4F38-AD11-13F2BCA8437D" version="1">
+	<Properties>
+		<Name>Singularity</Name>
+		<Teaser>LOC_SINGULARITY_MOD_TEASER</Teaser>
+		<Description>LOC_SINGULARITY_MOD_DESCRIPTION</Description>
+		<Authors>Prajwal Iyer</Authors>
+		<CompatibleVersions>2.0</CompatibleVersions>
+	</Properties>
+	<Dependencies>
+		<!-- Requires Gathering Storm for Power mechanics -->
+		<Mod id="4873eb62-8ccc-4574-b784-dda455e74e68" title="Gathering Storm"/>
+	</Dependencies>
+	<ActionCriteria>
+		<Criteria id="Singularity_Expansion2">
+			<GameCoreInUse>Expansion2</GameCoreInUse>
+		</Criteria>
+	</ActionCriteria>
+	<InGameActions>
+		<UpdateDatabase id="SingularityGameplay" criteria="Singularity_Expansion2">
+			<File>Data/Singularity_Resources.xml</File>
+			<File>Data/Singularity_Buildings.xml</File>
+			<File>Data/Singularity_Districts.xml</File>
+			<File>Data/Singularity_Adjacencies.xml</File>
+			<File>Data/Singularity_Improvements.xml</File>
+			<File>Data/Singularity_Units.xml</File>
+			<File>Data/Singularity_Projects.xml</File>
+			<File>Data/Singularity_Victory.xml</File>
+		</UpdateDatabase>
+		<UpdateText id="SingularityText" criteria="Singularity_Expansion2">
+			<File>Text/Singularity_Text.xml</File>
+		</UpdateText>
+		<UpdateIcons id="SingularityIcons" criteria="Singularity_Expansion2">
+			<File>Art/Singularity_Icons.xml</File>
+		</UpdateIcons>
+		<AddGameplayScripts id="SingularityScripts" criteria="Singularity_Expansion2">
+			<File>Scripts/Singularity_FusionReactor.lua</File>
+			<File>Scripts/Singularity_Microreactor.lua</File>
+			<File>Scripts/Singularity_DataCenter.lua</File>
+			<File>Scripts/Singularity_HumanoidRobot.lua</File>
+			<File>Scripts/Singularity_Chips.lua</File>
+			<File>Scripts/Singularity_InorganicLife.lua</File>
+			<File>Scripts/Singularity_RogueAI.lua</File>
+			<File>Scripts/Singularity_DysonSphere.lua</File>
+		</AddGameplayScripts>
+	</InGameActions>
+	<Files>
+		<File>Data/Singularity_Resources.xml</File>
+		<File>Data/Singularity_Buildings.xml</File>
+		<File>Data/Singularity_Districts.xml</File>
+		<File>Data/Singularity_Adjacencies.xml</File>
+		<File>Data/Singularity_Improvements.xml</File>
+		<File>Data/Singularity_Units.xml</File>
+		<File>Data/Singularity_Projects.xml</File>
+		<File>Data/Singularity_Victory.xml</File>
+		<File>Text/Singularity_Text.xml</File>
+		<File>Art/Singularity_Icons.xml</File>
+		<File>Scripts/Singularity_FusionReactor.lua</File>
+		<File>Scripts/Singularity_Microreactor.lua</File>
+		<File>Scripts/Singularity_DataCenter.lua</File>
+		<File>Scripts/Singularity_HumanoidRobot.lua</File>
+		<File>Scripts/Singularity_Chips.lua</File>
+		<File>Scripts/Singularity_InorganicLife.lua</File>
+		<File>Scripts/Singularity_RogueAI.lua</File>
+		<File>Scripts/Singularity_DysonSphere.lua</File>
+	</Files>
+</Mod>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameInfo>
+	<IconDefinitions>
+		<!-- Placeholder: reuse Aluminum icon until custom art is made -->
+		<Row Name="ICON_RESOURCE_SILICON"     Atlas="ICON_ATLAS_RESOURCES"     Index="40"/>
+		<Row Name="ICON_RESOURCE_SILICON_FOW" Atlas="ICON_ATLAS_RESOURCES_FOW" Index="40"/>
+		<!-- Font icon for top resource bar (reuse Aluminum font icon, index 89) -->
+		<Row Name="RESOURCE_SILICON"          Atlas="ICON_ATLAS_FONT_ICON_BASELINE_6" Index="89"/>
+
+		<!-- Placeholder: reuse Electronics Factory icon (index 27) for all Chip Fabs -->
+		<Row Name="ICON_BUILDING_CHIP_FAB"              Atlas="ICON_ATLAS_BUILDINGS"     Index="27"/>
+		<Row Name="ICON_BUILDING_CHIP_FAB_FOW"          Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="27"/>
+		<Row Name="ICON_BUILDING_ADVANCED_CHIP_FAB"     Atlas="ICON_ATLAS_BUILDINGS"     Index="27"/>
+		<Row Name="ICON_BUILDING_ADVANCED_CHIP_FAB_FOW" Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="27"/>
+		<Row Name="ICON_BUILDING_EXPERT_CHIP_FAB"       Atlas="ICON_ATLAS_BUILDINGS"     Index="27"/>
+		<Row Name="ICON_BUILDING_EXPERT_CHIP_FAB_FOW"   Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="27"/>
+
+		<!-- Placeholder: reuse Stock Exchange icon (index 28) for AI Dividends -->
+		<Row Name="ICON_BUILDING_AI_DIVIDENDS"     Atlas="ICON_ATLAS_BUILDINGS"     Index="28"/>
+		<Row Name="ICON_BUILDING_AI_DIVIDENDS_FOW" Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="28"/>
+
+		<!-- Placeholder: reuse Industrial Zone building icon for Fusion Core -->
+		<Row Name="ICON_BUILDING_FUSION_CORE"     Atlas="ICON_ATLAS_BUILDINGS"     Index="27"/>
+		<Row Name="ICON_BUILDING_FUSION_CORE_FOW" Atlas="ICON_ATLAS_BUILDINGS_FOW" Index="27"/>
+
+		<!-- Placeholder: reuse Industrial Zone icon (index 9) for Fusion Reactor -->
+		<Row Name="ICON_DISTRICT_FUSION_REACTOR"     Atlas="ICON_ATLAS_DISTRICTS"     Index="9"/>
+		<Row Name="ICON_DISTRICT_FUSION_REACTOR_FOW" Atlas="ICON_ATLAS_DISTRICTS_FOW" Index="9"/>
+	</IconDefinitions>
+</GameInfo>

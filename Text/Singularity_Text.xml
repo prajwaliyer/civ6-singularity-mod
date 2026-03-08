@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameData>
+	<EnglishText>
+		<!-- Mod Info -->
+		<Row Tag="LOC_SINGULARITY_MOD_TEASER">
+			<Text>Transform the late-game into technological transcendence.</Text>
+		</Row>
+		<Row Tag="LOC_SINGULARITY_MOD_DESCRIPTION">
+			<Text>Singularity replaces the Science Victory with a path to technological transcendence. Harvest Silicon, fabricate Chips, build Data Centers and Fusion Reactors, convert your civilization to inorganic life, and construct a Dyson Sphere to achieve victory. Requires Gathering Storm.</Text>
+		</Row>
+
+		<!-- Silicon Resource -->
+		<Row Tag="LOC_RESOURCE_SILICON_NAME">
+			<Text>Silicon</Text>
+		</Row>
+		<Row Tag="LOC_RESOURCE_SILICON_DESCRIPTION">
+			<Text>A strategic resource found in deserts and coastal regions. Required for chip fabrication and the construction of advanced computing infrastructure.</Text>
+		</Row>
+
+		<!-- Chip Fab Buildings -->
+		<Row Tag="LOC_BUILDING_CHIP_FAB_NAME">
+			<Text>Chip Fab</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_CHIP_FAB_DESCRIPTION">
+			<Text>Industrial Zone building. Fabricates basic Silicon chips for use in computing infrastructure. Requires a Factory. +2 [ICON_PRODUCTION] Production. Enables the Fabricate Chips city project (1 Chip per run).</Text>
+		</Row>
+
+		<Row Tag="LOC_BUILDING_ADVANCED_CHIP_FAB_NAME">
+			<Text>Advanced Chip Fab</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_ADVANCED_CHIP_FAB_DESCRIPTION">
+			<Text>Industrial Zone building. Produces cutting-edge processor designs using refined Silicon. Requires a Chip Fab. +3 [ICON_PRODUCTION] Production, +1 [ICON_SCIENCE] Science. Increases Fabricate Chips output to 3 Chips per run.</Text>
+		</Row>
+
+		<Row Tag="LOC_BUILDING_EXPERT_CHIP_FAB_NAME">
+			<Text>Expert Chip Fab</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_EXPERT_CHIP_FAB_DESCRIPTION">
+			<Text>Industrial Zone building. Manufactures chips at scale for domestic and interstellar use. Requires an Advanced Chip Fab. +4 [ICON_PRODUCTION] Production, +2 [ICON_SCIENCE] Science. Increases Fabricate Chips output to 5 Chips per run.</Text>
+		</Row>
+		<!-- AI Dividends Building -->
+		<Row Tag="LOC_BUILDING_AI_DIVIDENDS_NAME">
+			<Text>AI Dividends</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_AI_DIVIDENDS_DESCRIPTION">
+			<Text>Commercial Hub building. AI-driven trading algorithms generate substantial revenue. +10 [ICON_GOLD] Gold.</Text>
+		</Row>
+
+		<!-- Fusion Core Building -->
+		<Row Tag="LOC_BUILDING_FUSION_CORE_NAME">
+			<Text>Fusion Core</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_FUSION_CORE_DESCRIPTION">
+			<Text>Activates the Fusion Reactor, converting [ICON_RESOURCE_URANIUM] Uranium into 16 [ICON_POWER] Power for this city and nearby cities within 6 tiles. +3 [ICON_SCIENCE] Science.</Text>
+		</Row>
+
+		<!-- Fusion Reactor District -->
+		<Row Tag="LOC_DISTRICT_FUSION_REACTOR_NAME">
+			<Text>Fusion Reactor</Text>
+		</Row>
+		<Row Tag="LOC_DISTRICT_FUSION_REACTOR_DESCRIPTION">
+			<Text>A district that harnesses nuclear fusion to provide clean, abundant power. One per city. Caution: pillaging or natural disasters cause radiation fallout on surrounding tiles. +2 [ICON_PRODUCTION] Production per adjacent Industrial Zone.</Text>
+		</Row>
+		<Row Tag="LOC_DISTRICT_FUSION_REACTOR_ADJ_INDUSTRIAL_ZONE">
+			<Text>+{1_num} [ICON_PRODUCTION] Production from the adjacent {1_Num : plural 1?Industrial Zone; other?Industrial Zones;}</Text>
+		</Row>
+	</EnglishText>
+</GameData>

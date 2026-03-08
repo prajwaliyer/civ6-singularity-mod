@@ -1,0 +1,17 @@
+# Build artifacts
+*.civ6mod
+*.zip
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Deploy script
+deploy.sh
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/

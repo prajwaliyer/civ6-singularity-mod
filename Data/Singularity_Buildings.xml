@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameData>
+	<Types>
+		<Row Type="BUILDING_CHIP_FAB"          Kind="KIND_BUILDING"/>
+		<Row Type="BUILDING_ADVANCED_CHIP_FAB"  Kind="KIND_BUILDING"/>
+		<Row Type="BUILDING_EXPERT_CHIP_FAB"    Kind="KIND_BUILDING"/>
+		<Row Type="BUILDING_AI_DIVIDENDS"       Kind="KIND_BUILDING"/>
+		<Row Type="BUILDING_FUSION_CORE"        Kind="KIND_BUILDING"/>
+	</Types>
+
+	<Buildings>
+		<!-- Tier 1: Chip Fab — unlocks with Computers, requires Factory -->
+		<Row BuildingType="BUILDING_CHIP_FAB"
+			 Name="LOC_BUILDING_CHIP_FAB_NAME"
+			 Description="LOC_BUILDING_CHIP_FAB_DESCRIPTION"
+			 PrereqTech="TECH_COMPUTERS"
+			 PrereqDistrict="DISTRICT_INDUSTRIAL_ZONE"
+			 PurchaseYield="YIELD_GOLD"
+			 Cost="400"
+			 Maintenance="2"
+			 AdvisorType="ADVISOR_GENERIC"
+			 CitizenSlots="1"/>
+
+		<!-- Tier 2: Advanced Chip Fab — unlocks with Robotics, requires Chip Fab -->
+		<Row BuildingType="BUILDING_ADVANCED_CHIP_FAB"
+			 Name="LOC_BUILDING_ADVANCED_CHIP_FAB_NAME"
+			 Description="LOC_BUILDING_ADVANCED_CHIP_FAB_DESCRIPTION"
+			 PrereqTech="TECH_ROBOTICS"
+			 PrereqDistrict="DISTRICT_INDUSTRIAL_ZONE"
+			 PurchaseYield="YIELD_GOLD"
+			 Cost="600"
+			 Maintenance="3"
+			 AdvisorType="ADVISOR_GENERIC"
+			 CitizenSlots="1"/>
+
+		<!-- Tier 3: Expert Chip Fab — unlocks with Nanotechnology, requires Advanced Chip Fab -->
+		<Row BuildingType="BUILDING_EXPERT_CHIP_FAB"
+			 Name="LOC_BUILDING_EXPERT_CHIP_FAB_NAME"
+			 Description="LOC_BUILDING_EXPERT_CHIP_FAB_DESCRIPTION"
+			 PrereqTech="TECH_NANOTECHNOLOGY"
+			 PrereqDistrict="DISTRICT_INDUSTRIAL_ZONE"
+			 PurchaseYield="YIELD_GOLD"
+			 Cost="800"
+			 Maintenance="4"
+			 AdvisorType="ADVISOR_GENERIC"
+			 CitizenSlots="1"/>
+
+		<!-- AI Dividends — Commercial Hub building, +10 Gold -->
+		<Row BuildingType="BUILDING_AI_DIVIDENDS"
+			 Name="LOC_BUILDING_AI_DIVIDENDS_NAME"
+			 Description="LOC_BUILDING_AI_DIVIDENDS_DESCRIPTION"
+			 PrereqTech="TECH_COMPUTERS"
+			 PrereqDistrict="DISTRICT_COMMERCIAL_HUB"
+			 PurchaseYield="YIELD_GOLD"
+			 Cost="400"
+			 Maintenance="2"
+			 AdvisorType="ADVISOR_GENERIC"
+			 CitizenSlots="1"/>
+		<!-- Fusion Core — built inside Fusion Reactor district, provides Power -->
+		<Row BuildingType="BUILDING_FUSION_CORE"
+			 Name="LOC_BUILDING_FUSION_CORE_NAME"
+			 Description="LOC_BUILDING_FUSION_CORE_DESCRIPTION"
+			 PrereqTech="TECH_NUCLEAR_FUSION"
+			 PrereqDistrict="DISTRICT_FUSION_REACTOR"
+			 PurchaseYield="YIELD_GOLD"
+			 Cost="300"
+			 Maintenance="2"
+			 AdvisorType="ADVISOR_GENERIC"
+			 CitizenSlots="1"
+			 RegionalRange="6"/>
+	</Buildings>
+
+	<!-- Build chain: Chip Fab → Advanced → Expert -->
+	<BuildingPrereqs>
+		<Row Building="BUILDING_ADVANCED_CHIP_FAB" PrereqBuilding="BUILDING_CHIP_FAB"/>
+		<Row Building="BUILDING_EXPERT_CHIP_FAB"   PrereqBuilding="BUILDING_ADVANCED_CHIP_FAB"/>
+	</BuildingPrereqs>
+
+	<!-- Placeholder yields (full Chips mechanic comes in Step 8) -->
+	<Building_YieldChanges>
+		<Row BuildingType="BUILDING_CHIP_FAB"          YieldType="YIELD_PRODUCTION" YieldChange="2"/>
+		<Row BuildingType="BUILDING_ADVANCED_CHIP_FAB"  YieldType="YIELD_PRODUCTION" YieldChange="3"/>
+		<Row BuildingType="BUILDING_ADVANCED_CHIP_FAB"  YieldType="YIELD_SCIENCE"    YieldChange="1"/>
+		<Row BuildingType="BUILDING_EXPERT_CHIP_FAB"    YieldType="YIELD_PRODUCTION" YieldChange="4"/>
+		<Row BuildingType="BUILDING_EXPERT_CHIP_FAB"    YieldType="YIELD_SCIENCE"    YieldChange="2"/>
+		<Row BuildingType="BUILDING_AI_DIVIDENDS"       YieldType="YIELD_GOLD"       YieldChange="10"/>
+		<Row BuildingType="BUILDING_FUSION_CORE"        YieldType="YIELD_SCIENCE"    YieldChange="3"/>
+	</Building_YieldChanges>
+
+	<!-- Fusion Core power plant config (GS) — consumes Uranium, provides 16 Power, regional range 6 -->
+	<Buildings_XP2>
+		<Row BuildingType="BUILDING_FUSION_CORE" ResourceTypeConvertedToPower="RESOURCE_URANIUM"/>
+	</Buildings_XP2>
+</GameData>

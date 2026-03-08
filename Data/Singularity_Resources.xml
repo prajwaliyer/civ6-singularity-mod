@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameData>
+	<!-- Register Silicon as a new type -->
+	<Types>
+		<Row Type="RESOURCE_SILICON" Kind="KIND_RESOURCE"/>
+	</Types>
+
+	<!-- Tag it as a Production/Science strategic resource -->
+	<TypeTags>
+		<Row Type="RESOURCE_SILICON" Tag="CLASS_PRODUCTION"/>
+		<Row Type="RESOURCE_SILICON" Tag="CLASS_SCIENCE"/>
+	</TypeTags>
+
+	<!-- Define the resource properties -->
+	<Resources>
+		<Row ResourceType="RESOURCE_SILICON"
+			 Name="LOC_RESOURCE_SILICON_NAME"
+			 ResourceClassType="RESOURCECLASS_STRATEGIC"
+			 Frequency="8"
+			 PrereqTech="TECH_ELECTRICITY"
+			 RevealedEra="6"/>
+	</Resources>
+
+	<!-- Valid terrain placements: Desert flats, Desert hills, Coast -->
+	<Resource_ValidTerrains>
+		<Row ResourceType="RESOURCE_SILICON" TerrainType="TERRAIN_DESERT"/>
+		<Row ResourceType="RESOURCE_SILICON" TerrainType="TERRAIN_DESERT_HILLS"/>
+		<Row ResourceType="RESOURCE_SILICON" TerrainType="TERRAIN_COAST"/>
+	</Resource_ValidTerrains>
+
+	<!-- Base yield when the tile is worked -->
+	<Resource_YieldChanges>
+		<Row ResourceType="RESOURCE_SILICON" YieldType="YIELD_PRODUCTION" YieldChange="1"/>
+		<Row ResourceType="RESOURCE_SILICON" YieldType="YIELD_SCIENCE" YieldChange="1"/>
+	</Resource_YieldChanges>
+
+	<!-- Improved by Mines on land (Coast tiles won't get a mine but the resource still works) -->
+	<Improvement_ValidResources>
+		<Row ImprovementType="IMPROVEMENT_MINE" ResourceType="RESOURCE_SILICON"/>
+	</Improvement_ValidResources>
+
+	<!-- GS accumulation: Mine extracts 2/turn, stockpile cap 50 -->
+	<Resource_Consumption>
+		<Row ResourceType="RESOURCE_SILICON" Accumulate="true" BaseExtractionRate="0" ImprovedExtractionRate="2" StockpileCap="50"/>
+	</Resource_Consumption>
+</GameData>

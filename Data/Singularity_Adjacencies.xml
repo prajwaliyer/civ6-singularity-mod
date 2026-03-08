@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameData>
+	<Adjacency_YieldChanges>
+		<!-- Fusion Reactor: +2 Production per adjacent Industrial Zone -->
+		<Row ID="FusionReactor_IndustrialZone_Production"
+			 Description="LOC_DISTRICT_FUSION_REACTOR_ADJ_INDUSTRIAL_ZONE"
+			 YieldType="YIELD_PRODUCTION"
+			 YieldChange="2"
+			 TilesRequired="1"
+			 AdjacentDistrict="DISTRICT_INDUSTRIAL_ZONE"/>
+	</Adjacency_YieldChanges>
+</GameData>
