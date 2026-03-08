@@ -17,26 +17,34 @@
 			<Text>A strategic resource found in deserts and coastal regions. Required for chip fabrication and the construction of advanced computing infrastructure.</Text>
 		</Row>
 
+		<!-- Chips Resource -->
+		<Row Tag="LOC_RESOURCE_CHIPS_NAME">
+			<Text>Chips</Text>
+		</Row>
+		<Row Tag="LOC_RESOURCE_CHIPS_DESCRIPTION">
+			<Text>A manufactured strategic resource produced by Chip Fab buildings in the Industrial Zone. Required for Data Centers and advanced computing infrastructure.</Text>
+		</Row>
+
 		<!-- Chip Fab Buildings -->
 		<Row Tag="LOC_BUILDING_CHIP_FAB_NAME">
 			<Text>Chip Fab</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_CHIP_FAB_DESCRIPTION">
-			<Text>Industrial Zone building. Fabricates basic Silicon chips for use in computing infrastructure. Requires a Factory. +2 [ICON_PRODUCTION] Production. Enables the Fabricate Chips city project (1 Chip per run).</Text>
+			<Text>Industrial Zone building. Fabricates basic Silicon chips for use in computing infrastructure. +2 [ICON_PRODUCTION] Production. Produces 1 [ICON_RESOURCE_CHIPS] Chip per turn (requires improved [ICON_RESOURCE_SILICON] Silicon).</Text>
 		</Row>
 
 		<Row Tag="LOC_BUILDING_ADVANCED_CHIP_FAB_NAME">
 			<Text>Advanced Chip Fab</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_ADVANCED_CHIP_FAB_DESCRIPTION">
-			<Text>Industrial Zone building. Produces cutting-edge processor designs using refined Silicon. Requires a Chip Fab. +3 [ICON_PRODUCTION] Production, +1 [ICON_SCIENCE] Science. Increases Fabricate Chips output to 3 Chips per run.</Text>
+			<Text>Industrial Zone building. Produces cutting-edge processor designs using refined Silicon. Requires a Chip Fab. +3 [ICON_PRODUCTION] Production, +1 [ICON_SCIENCE] Science. Produces an additional 2 [ICON_RESOURCE_CHIPS] Chips per turn (3 total, requires improved [ICON_RESOURCE_SILICON] Silicon).</Text>
 		</Row>
 
 		<Row Tag="LOC_BUILDING_EXPERT_CHIP_FAB_NAME">
 			<Text>Expert Chip Fab</Text>
 		</Row>
 		<Row Tag="LOC_BUILDING_EXPERT_CHIP_FAB_DESCRIPTION">
-			<Text>Industrial Zone building. Manufactures chips at scale for domestic and interstellar use. Requires an Advanced Chip Fab. +4 [ICON_PRODUCTION] Production, +2 [ICON_SCIENCE] Science. Increases Fabricate Chips output to 5 Chips per run.</Text>
+			<Text>Industrial Zone building. Manufactures chips at scale for domestic and interstellar use. Requires an Advanced Chip Fab. +4 [ICON_PRODUCTION] Production, +2 [ICON_SCIENCE] Science. Produces an additional 2 [ICON_RESOURCE_CHIPS] Chips per turn (5 total, requires improved [ICON_RESOURCE_SILICON] Silicon).</Text>
 		</Row>
 		<!-- AI Dividends Building -->
 		<Row Tag="LOC_BUILDING_AI_DIVIDENDS_NAME">
@@ -64,5 +72,22 @@
 		<Row Tag="LOC_DISTRICT_FUSION_REACTOR_ADJ_INDUSTRIAL_ZONE">
 			<Text>+{1_num} [ICON_PRODUCTION] Production from the adjacent {1_Num : plural 1?Industrial Zone; other?Industrial Zones;}</Text>
 		</Row>
+
+		<!-- Microreactor Improvement -->
+		<Row Tag="LOC_IMPROVEMENT_MICROREACTOR_NAME">
+			<Text>Microreactor</Text>
+		</Row>
+		<Row Tag="LOC_IMPROVEMENT_MICROREACTOR_DESCRIPTION">
+			<Text>A compact nuclear fission reactor that provides 4 [ICON_POWER] Power to the city. +1 [ICON_PRODUCTION] Production, +1 [ICON_SCIENCE] Science. Caution: pillaging or natural disasters cause radiation fallout on this tile.</Text>
+		</Row>
+
+		<!-- Notifications -->
+		<Row Tag="LOC_NOTIFICATION_CHIP_FAB_IDLE_TITLE">
+			<Text>Chip Fabs Idle</Text>
+		</Row>
+		<Row Tag="LOC_NOTIFICATION_CHIP_FAB_IDLE_BODY">
+			<Text>Your Chip Fabs are not producing [ICON_RESOURCE_CHIPS] Chips because you have no improved [ICON_RESOURCE_SILICON] Silicon. Build a Mine on a Silicon deposit to resume production.</Text>
+		</Row>
+
 	</EnglishText>
 </GameData>

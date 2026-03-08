@@ -26,5 +26,14 @@
 		<!-- Placeholder: reuse Industrial Zone icon (index 9) for Fusion Reactor -->
 		<Row Name="ICON_DISTRICT_FUSION_REACTOR"     Atlas="ICON_ATLAS_DISTRICTS"     Index="9"/>
 		<Row Name="ICON_DISTRICT_FUSION_REACTOR_FOW" Atlas="ICON_ATLAS_DISTRICTS_FOW" Index="9"/>
+
+		<!-- Placeholder: reuse Aluminum icon for Chips resource -->
+		<Row Name="ICON_RESOURCE_CHIPS"     Atlas="ICON_ATLAS_RESOURCES"     Index="40"/>
+		<Row Name="ICON_RESOURCE_CHIPS_FOW" Atlas="ICON_ATLAS_RESOURCES_FOW" Index="40"/>
+		<Row Name="RESOURCE_CHIPS"          Atlas="ICON_ATLAS_FONT_ICON_BASELINE_6" Index="89"/>
+
+		<!-- Placeholder: reuse Solar Farm icon for Microreactor -->
+		<Row Name="ICON_IMPROVEMENT_MICROREACTOR"     Atlas="ICON_ATLAS_IMPROVEMENTS"     Index="19"/>
+		<Row Name="ICON_IMPROVEMENT_MICROREACTOR_FOW" Atlas="ICON_ATLAS_IMPROVEMENTS_FOW" Index="19"/>
 	</IconDefinitions>
 </GameInfo>

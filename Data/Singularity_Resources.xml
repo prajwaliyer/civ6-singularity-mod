@@ -43,4 +43,26 @@
 	<Resource_Consumption>
 		<Row ResourceType="RESOURCE_SILICON" Accumulate="true" BaseExtractionRate="0" ImprovedExtractionRate="2" StockpileCap="50"/>
 	</Resource_Consumption>
+
+	<!-- ================================================================ -->
+	<!-- Chips — manufactured strategic resource, not found on the map    -->
+	<!-- Produced by Chip Fab buildings in the Industrial Zone            -->
+	<!-- ================================================================ -->
+	<Types>
+		<Row Type="RESOURCE_CHIPS" Kind="KIND_RESOURCE"/>
+	</Types>
+
+	<Resources>
+		<Row ResourceType="RESOURCE_CHIPS"
+			 Name="LOC_RESOURCE_CHIPS_NAME"
+			 ResourceClassType="RESOURCECLASS_STRATEGIC"
+			 Frequency="0"
+			 PrereqTech="TECH_COMPUTERS"
+			 RevealedEra="7"/>
+	</Resources>
+
+	<!-- GS accumulation: no natural extraction, high stockpile cap -->
+	<Resource_Consumption>
+		<Row ResourceType="RESOURCE_CHIPS" Accumulate="true" BaseExtractionRate="0" ImprovedExtractionRate="0" StockpileCap="100"/>
+	</Resource_Consumption>
 </GameData>

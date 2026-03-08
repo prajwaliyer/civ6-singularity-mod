@@ -1,3 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameData>
+	<Types>
+		<Row Type="IMPROVEMENT_MICROREACTOR" Kind="KIND_IMPROVEMENT"/>
+	</Types>
+
+	<Improvements>
+		<Row ImprovementType="IMPROVEMENT_MICROREACTOR"
+			 Name="LOC_IMPROVEMENT_MICROREACTOR_NAME"
+			 Description="LOC_IMPROVEMENT_MICROREACTOR_DESCRIPTION"
+			 Icon="ICON_IMPROVEMENT_MICROREACTOR"
+			 PlunderType="PLUNDER_SCIENCE"
+			 PlunderAmount="25"
+			 PrereqTech="TECH_NUCLEAR_FISSION"
+			 Buildable="true"
+			 Domain="DOMAIN_LAND"/>
+	</Improvements>
+
+	<Improvement_ValidTerrains>
+		<Row ImprovementType="IMPROVEMENT_MICROREACTOR" TerrainType="TERRAIN_PLAINS"/>
+		<Row ImprovementType="IMPROVEMENT_MICROREACTOR" TerrainType="TERRAIN_GRASS"/>
+		<Row ImprovementType="IMPROVEMENT_MICROREACTOR" TerrainType="TERRAIN_DESERT"/>
+		<Row ImprovementType="IMPROVEMENT_MICROREACTOR" TerrainType="TERRAIN_TUNDRA"/>
+	</Improvement_ValidTerrains>
+
+	<Improvement_ValidBuildUnits>
+		<Row ImprovementType="IMPROVEMENT_MICROREACTOR" UnitType="UNIT_BUILDER"/>
+	</Improvement_ValidBuildUnits>
+
+	<Improvement_YieldChanges>
+		<Row ImprovementType="IMPROVEMENT_MICROREACTOR" YieldType="YIELD_PRODUCTION" YieldChange="1"/>
+		<Row ImprovementType="IMPROVEMENT_MICROREACTOR" YieldType="YIELD_SCIENCE"    YieldChange="1"/>
+	</Improvement_YieldChanges>
+
+	<!-- Power generation via modifier (same pattern as Solar Farm) -->
+	<Modifiers>
+		<Row>
+			<ModifierId>MICROREACTOR_GENERATE_POWER</ModifierId>
+			<ModifierType>MODIFIER_SINGLE_CITY_ADJUST_FREE_POWER</ModifierType>
+		</Row>
+	</Modifiers>
+
+	<ModifierArguments>
+		<Row>
+			<ModifierId>MICROREACTOR_GENERATE_POWER</ModifierId>
+			<Name>Amount</Name>
+			<Value>4</Value>
+		</Row>
+	</ModifierArguments>
+
+	<ImprovementModifiers>
+		<Row>
+			<ImprovementType>IMPROVEMENT_MICROREACTOR</ImprovementType>
+			<ModifierId>MICROREACTOR_GENERATE_POWER</ModifierId>
+		</Row>
+	</ImprovementModifiers>
 </GameData>

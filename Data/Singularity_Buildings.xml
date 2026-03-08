@@ -76,7 +76,56 @@
 		<Row Building="BUILDING_EXPERT_CHIP_FAB"   PrereqBuilding="BUILDING_ADVANCED_CHIP_FAB"/>
 	</BuildingPrereqs>
 
-	<!-- Placeholder yields (full Chips mechanic comes in Step 8) -->
+	<!-- Chip Fab buildings produce Chips (strategic resource) per turn -->
+	<!-- Incremental: +1, +2, +2 so totals are 1/3/5 per city -->
+	<!-- Only produces when the player has improved Silicon -->
+	<Modifiers>
+		<Row>
+			<ModifierId>CHIP_FAB_PRODUCE_CHIPS</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_EXTRACTION</ModifierType>
+			<SubjectRequirementSetId>PLAYER_HAS_IMPROVED_SILICON</SubjectRequirementSetId>
+		</Row>
+		<Row>
+			<ModifierId>ADVANCED_CHIP_FAB_PRODUCE_CHIPS</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_EXTRACTION</ModifierType>
+			<SubjectRequirementSetId>PLAYER_HAS_IMPROVED_SILICON</SubjectRequirementSetId>
+		</Row>
+		<Row>
+			<ModifierId>EXPERT_CHIP_FAB_PRODUCE_CHIPS</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_EXTRACTION</ModifierType>
+			<SubjectRequirementSetId>PLAYER_HAS_IMPROVED_SILICON</SubjectRequirementSetId>
+		</Row>
+	</Modifiers>
+
+	<!-- Requirement: Player must have at least one improved Silicon tile -->
+	<RequirementSets>
+		<Row RequirementSetId="PLAYER_HAS_IMPROVED_SILICON" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+	</RequirementSets>
+	<RequirementSetRequirements>
+		<Row RequirementSetId="PLAYER_HAS_IMPROVED_SILICON" RequirementId="REQUIRES_PLAYER_HAS_IMPROVED_SILICON"/>
+	</RequirementSetRequirements>
+	<Requirements>
+		<Row RequirementId="REQUIRES_PLAYER_HAS_IMPROVED_SILICON" RequirementType="REQUIREMENT_PLAYER_HAS_RESOURCE_IMPROVED"/>
+	</Requirements>
+	<RequirementArguments>
+		<Row RequirementId="REQUIRES_PLAYER_HAS_IMPROVED_SILICON" Name="ResourceType" Value="RESOURCE_SILICON"/>
+	</RequirementArguments>
+
+	<ModifierArguments>
+		<Row><ModifierId>CHIP_FAB_PRODUCE_CHIPS</ModifierId><Name>ResourceType</Name><Value>RESOURCE_CHIPS</Value></Row>
+		<Row><ModifierId>CHIP_FAB_PRODUCE_CHIPS</ModifierId><Name>Amount</Name><Value>1</Value></Row>
+		<Row><ModifierId>ADVANCED_CHIP_FAB_PRODUCE_CHIPS</ModifierId><Name>ResourceType</Name><Value>RESOURCE_CHIPS</Value></Row>
+		<Row><ModifierId>ADVANCED_CHIP_FAB_PRODUCE_CHIPS</ModifierId><Name>Amount</Name><Value>2</Value></Row>
+		<Row><ModifierId>EXPERT_CHIP_FAB_PRODUCE_CHIPS</ModifierId><Name>ResourceType</Name><Value>RESOURCE_CHIPS</Value></Row>
+		<Row><ModifierId>EXPERT_CHIP_FAB_PRODUCE_CHIPS</ModifierId><Name>Amount</Name><Value>2</Value></Row>
+	</ModifierArguments>
+
+	<BuildingModifiers>
+		<Row BuildingType="BUILDING_CHIP_FAB"          ModifierId="CHIP_FAB_PRODUCE_CHIPS"/>
+		<Row BuildingType="BUILDING_ADVANCED_CHIP_FAB"  ModifierId="ADVANCED_CHIP_FAB_PRODUCE_CHIPS"/>
+		<Row BuildingType="BUILDING_EXPERT_CHIP_FAB"    ModifierId="EXPERT_CHIP_FAB_PRODUCE_CHIPS"/>
+	</BuildingModifiers>
+
 	<Building_YieldChanges>
 		<Row BuildingType="BUILDING_CHIP_FAB"          YieldType="YIELD_PRODUCTION" YieldChange="2"/>
 		<Row BuildingType="BUILDING_ADVANCED_CHIP_FAB"  YieldType="YIELD_PRODUCTION" YieldChange="3"/>
