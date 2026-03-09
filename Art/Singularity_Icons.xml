@@ -35,5 +35,9 @@
 		<!-- Placeholder: reuse Solar Farm icon for Microreactor -->
 		<Row Name="ICON_IMPROVEMENT_MICROREACTOR"     Atlas="ICON_ATLAS_IMPROVEMENTS"     Index="19"/>
 		<Row Name="ICON_IMPROVEMENT_MICROREACTOR_FOW" Atlas="ICON_ATLAS_IMPROVEMENTS_FOW" Index="19"/>
+
+		<!-- Placeholder: reuse Campus icon (index 2) for Data Center -->
+		<Row Name="ICON_DISTRICT_DATA_CENTER"     Atlas="ICON_ATLAS_DISTRICTS"     Index="2"/>
+		<Row Name="ICON_DISTRICT_DATA_CENTER_FOW" Atlas="ICON_ATLAS_DISTRICTS_FOW" Index="2"/>
 	</IconDefinitions>
 </GameInfo>

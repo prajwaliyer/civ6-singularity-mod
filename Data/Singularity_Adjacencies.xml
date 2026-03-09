@@ -8,5 +8,45 @@
 			 YieldChange="2"
 			 TilesRequired="1"
 			 AdjacentDistrict="DISTRICT_INDUSTRIAL_ZONE"/>
+
+		<!-- Data Center: +3 Science per adjacent Data Center -->
+		<Row ID="DataCenter_DataCenter_Science"
+			 Description="LOC_DISTRICT_DATA_CENTER_ADJ_DATA_CENTER"
+			 YieldType="YIELD_SCIENCE"
+			 YieldChange="3"
+			 TilesRequired="1"
+			 AdjacentDistrict="DISTRICT_DATA_CENTER"/>
+
+		<!-- Data Center: +3 Science per adjacent Campus -->
+		<Row ID="DataCenter_Campus_Science"
+			 Description="LOC_DISTRICT_DATA_CENTER_ADJ_CAMPUS"
+			 YieldType="YIELD_SCIENCE"
+			 YieldChange="3"
+			 TilesRequired="1"
+			 AdjacentDistrict="DISTRICT_CAMPUS"/>
+
+		<!-- Data Center: +5 Production per adjacent Fusion Reactor -->
+		<Row ID="DataCenter_FusionReactor_Production"
+			 Description="LOC_DISTRICT_DATA_CENTER_ADJ_FUSION_REACTOR"
+			 YieldType="YIELD_PRODUCTION"
+			 YieldChange="5"
+			 TilesRequired="1"
+			 AdjacentDistrict="DISTRICT_FUSION_REACTOR"/>
+
+		<!-- Data Center: +2 Production per adjacent Solar Farm -->
+		<Row ID="DataCenter_SolarFarm_Production"
+			 Description="LOC_DISTRICT_DATA_CENTER_ADJ_SOLAR_FARM"
+			 YieldType="YIELD_PRODUCTION"
+			 YieldChange="2"
+			 TilesRequired="1"
+			 AdjacentImprovement="IMPROVEMENT_SOLAR_FARM"/>
+
+		<!-- Data Center: +3 Production per adjacent Microreactor -->
+		<Row ID="DataCenter_Microreactor_Production"
+			 Description="LOC_DISTRICT_DATA_CENTER_ADJ_MICROREACTOR"
+			 YieldType="YIELD_PRODUCTION"
+			 YieldChange="3"
+			 TilesRequired="1"
+			 AdjacentImprovement="IMPROVEMENT_MICROREACTOR"/>
 	</Adjacency_YieldChanges>
 </GameData>

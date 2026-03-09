@@ -81,12 +81,42 @@
 			<Text>A compact nuclear fission reactor that provides 4 [ICON_POWER] Power to the city. +1 [ICON_PRODUCTION] Production, +1 [ICON_SCIENCE] Science. Caution: pillaging or natural disasters cause radiation fallout on this tile.</Text>
 		</Row>
 
+		<!-- Data Center District -->
+		<Row Tag="LOC_DISTRICT_DATA_CENTER_NAME">
+			<Text>Data Center</Text>
+		</Row>
+		<Row Tag="LOC_DISTRICT_DATA_CENTER_DESCRIPTION">
+			<Text>A district dedicated to massive computing infrastructure. Multiple allowed per city. Consumes 1 [ICON_RESOURCE_CHIPS] Chip per turn; yields are disabled when Chip stockpile is empty. +5 [ICON_SCIENCE] Science, +3 [ICON_PRODUCTION] Production. +3 [ICON_SCIENCE] Science per adjacent Data Center or Campus. +2 [ICON_PRODUCTION] Production per adjacent Solar Farm. +3 [ICON_PRODUCTION] Production per adjacent Microreactor. +5 [ICON_PRODUCTION] Production per adjacent Fusion Reactor.</Text>
+		</Row>
+		<Row Tag="LOC_DISTRICT_DATA_CENTER_ADJ_DATA_CENTER">
+			<Text>+{1_num} [ICON_SCIENCE] Science from the adjacent {1_Num : plural 1?Data Center; other?Data Centers;}</Text>
+		</Row>
+		<Row Tag="LOC_DISTRICT_DATA_CENTER_ADJ_CAMPUS">
+			<Text>+{1_num} [ICON_SCIENCE] Science from the adjacent {1_Num : plural 1?Campus; other?Campuses;}</Text>
+		</Row>
+		<Row Tag="LOC_DISTRICT_DATA_CENTER_ADJ_FUSION_REACTOR">
+			<Text>+{1_num} [ICON_PRODUCTION] Production from the adjacent {1_Num : plural 1?Fusion Reactor; other?Fusion Reactors;}</Text>
+		</Row>
+		<Row Tag="LOC_DISTRICT_DATA_CENTER_ADJ_SOLAR_FARM">
+			<Text>+{1_num} [ICON_PRODUCTION] Production from the adjacent {1_Num : plural 1?Solar Farm; other?Solar Farms;}</Text>
+		</Row>
+		<Row Tag="LOC_DISTRICT_DATA_CENTER_ADJ_MICROREACTOR">
+			<Text>+{1_num} [ICON_PRODUCTION] Production from the adjacent {1_Num : plural 1?Microreactor; other?Microreactors;}</Text>
+		</Row>
+
 		<!-- Notifications -->
 		<Row Tag="LOC_NOTIFICATION_CHIP_FAB_IDLE_TITLE">
 			<Text>Chip Fabs Idle</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_CHIP_FAB_IDLE_BODY">
 			<Text>Your Chip Fabs are not producing [ICON_RESOURCE_CHIPS] Chips because you have no improved [ICON_RESOURCE_SILICON] Silicon. Build a Mine on a Silicon deposit to resume production.</Text>
+		</Row>
+
+		<Row Tag="LOC_NOTIFICATION_DATA_CENTER_OFFLINE_TITLE">
+			<Text>Data Centers Offline</Text>
+		</Row>
+		<Row Tag="LOC_NOTIFICATION_DATA_CENTER_OFFLINE_BODY">
+			<Text>Your Data Centers are not producing yields because your [ICON_RESOURCE_CHIPS] Chip stockpile is empty. Build Chip Fabs to resume production.</Text>
 		</Row>
 
 	</EnglishText>
