@@ -43,14 +43,18 @@ function OnPlayerTurnActivated_DataCenterCheck(playerID, isFirstTime)
 	if chipCount > 0 then return end -- Chips available, Data Centers are fine
 
 	-- Player has Data Centers but no Chips — notify
-	NotificationManager.SendNotification(
-		playerID,
-		NotificationTypes.DEFAULT,
-		"LOC_NOTIFICATION_DATA_CENTER_OFFLINE_TITLE",
-		"LOC_NOTIFICATION_DATA_CENTER_OFFLINE_BODY",
-		dcCity:GetX(),
-		dcCity:GetY()
-	)
+	pcall(function()
+		if NotificationManager and NotificationTypes then
+			NotificationManager.SendNotification(
+				playerID,
+				NotificationTypes.DEFAULT,
+				"LOC_NOTIFICATION_DATA_CENTER_OFFLINE_TITLE",
+				"LOC_NOTIFICATION_DATA_CENTER_OFFLINE_BODY",
+				dcCity:GetX(),
+				dcCity:GetY()
+			)
+		end
+	end)
 end
 
 Events.PlayerTurnActivated.Add(OnPlayerTurnActivated_DataCenterCheck)

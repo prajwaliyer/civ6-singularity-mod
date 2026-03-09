@@ -6,6 +6,7 @@
 		<Row Type="BUILDING_EXPERT_CHIP_FAB"    Kind="KIND_BUILDING"/>
 		<Row Type="BUILDING_AI_DIVIDENDS"       Kind="KIND_BUILDING"/>
 		<Row Type="BUILDING_FUSION_CORE"        Kind="KIND_BUILDING"/>
+		<Row Type="BUILDING_INORGANIC_CITY"     Kind="KIND_BUILDING"/>
 	</Types>
 
 	<Buildings>
@@ -56,6 +57,7 @@
 			 Maintenance="2"
 			 AdvisorType="ADVISOR_GENERIC"
 			 CitizenSlots="1"/>
+
 		<!-- Fusion Core — built inside Fusion Reactor district, provides Power -->
 		<Row BuildingType="BUILDING_FUSION_CORE"
 			 Name="LOC_BUILDING_FUSION_CORE_NAME"
@@ -68,6 +70,15 @@
 			 AdvisorType="ADVISOR_GENERIC"
 			 CitizenSlots="1"
 			 RegionalRange="6"/>
+
+		<!-- Invisible marker: granted when Convert to Inorganic Life completes.
+			 Prevents the project from appearing again in this city. -->
+		<Row BuildingType="BUILDING_INORGANIC_CITY"
+			 Name="LOC_BUILDING_INORGANIC_CITY_NAME"
+			 Description="LOC_BUILDING_INORGANIC_CITY_DESCRIPTION"
+			 PrereqDistrict="DISTRICT_CITY_CENTER"
+			 Cost="0"
+			 InternalOnly="true"/>
 	</Buildings>
 
 	<!-- Build chain: Chip Fab → Advanced → Expert -->
@@ -80,6 +91,11 @@
 	<!-- Incremental: +1, +2, +2 so totals are 1/3/5 per city -->
 	<!-- Only produces when the player has improved Silicon -->
 	<Modifiers>
+		<!-- Kill food-based growth in cities converted to Inorganic Life (-100%) -->
+		<Row>
+			<ModifierId>INORGANIC_CITY_NO_FOOD_GROWTH</ModifierId>
+			<ModifierType>MODIFIER_SINGLE_CITY_ADJUST_CITY_GROWTH</ModifierType>
+		</Row>
 		<Row>
 			<ModifierId>CHIP_FAB_PRODUCE_CHIPS</ModifierId>
 			<ModifierType>MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_EXTRACTION</ModifierType>
@@ -112,6 +128,7 @@
 	</RequirementArguments>
 
 	<ModifierArguments>
+		<Row><ModifierId>INORGANIC_CITY_NO_FOOD_GROWTH</ModifierId><Name>Amount</Name><Value>-100</Value></Row>
 		<Row><ModifierId>CHIP_FAB_PRODUCE_CHIPS</ModifierId><Name>ResourceType</Name><Value>RESOURCE_CHIPS</Value></Row>
 		<Row><ModifierId>CHIP_FAB_PRODUCE_CHIPS</ModifierId><Name>Amount</Name><Value>1</Value></Row>
 		<Row><ModifierId>ADVANCED_CHIP_FAB_PRODUCE_CHIPS</ModifierId><Name>ResourceType</Name><Value>RESOURCE_CHIPS</Value></Row>
@@ -121,6 +138,7 @@
 	</ModifierArguments>
 
 	<BuildingModifiers>
+		<Row BuildingType="BUILDING_INORGANIC_CITY"    ModifierId="INORGANIC_CITY_NO_FOOD_GROWTH"/>
 		<Row BuildingType="BUILDING_CHIP_FAB"          ModifierId="CHIP_FAB_PRODUCE_CHIPS"/>
 		<Row BuildingType="BUILDING_ADVANCED_CHIP_FAB"  ModifierId="ADVANCED_CHIP_FAB_PRODUCE_CHIPS"/>
 		<Row BuildingType="BUILDING_EXPERT_CHIP_FAB"    ModifierId="EXPERT_CHIP_FAB_PRODUCE_CHIPS"/>

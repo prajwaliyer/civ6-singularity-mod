@@ -64,14 +64,18 @@ function OnPlayerTurnActivated_ChipCheck(playerID, isFirstTime)
 	if PlayerHasImprovedSilicon(playerID) then return end -- Silicon is fine
 
 	-- Player has Chip Fabs but no improved Silicon — notify
-	NotificationManager.SendNotification(
-		playerID,
-		NotificationTypes.DEFAULT,
-		"LOC_NOTIFICATION_CHIP_FAB_IDLE_TITLE",
-		"LOC_NOTIFICATION_CHIP_FAB_IDLE_BODY",
-		chipFabCity:GetX(),
-		chipFabCity:GetY()
-	)
+	pcall(function()
+		if NotificationManager and NotificationTypes then
+			NotificationManager.SendNotification(
+				playerID,
+				NotificationTypes.DEFAULT,
+				"LOC_NOTIFICATION_CHIP_FAB_IDLE_TITLE",
+				"LOC_NOTIFICATION_CHIP_FAB_IDLE_BODY",
+				chipFabCity:GetX(),
+				chipFabCity:GetY()
+			)
+		end
+	end)
 end
 
 Events.PlayerTurnActivated.Add(OnPlayerTurnActivated_ChipCheck)

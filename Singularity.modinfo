@@ -33,6 +33,12 @@
 		<UpdateIcons id="SingularityIcons" criteria="Singularity_Expansion2">
 			<File>Art/Singularity_Icons.xml</File>
 		</UpdateIcons>
+		<AddUserInterfaces id="SingularityUI" criteria="Singularity_Expansion2">
+			<Properties>
+				<Context>InGame</Context>
+			</Properties>
+			<File>UI/InorganicLifeUI.xml</File>
+		</AddUserInterfaces>
 		<AddGameplayScripts id="SingularityScripts" criteria="Singularity_Expansion2">
 			<File>Scripts/Singularity_FusionReactor.lua</File>
 			<File>Scripts/Singularity_Microreactor.lua</File>
@@ -63,5 +69,7 @@
 		<File>Scripts/Singularity_InorganicLife.lua</File>
 		<File>Scripts/Singularity_RogueAI.lua</File>
 		<File>Scripts/Singularity_DysonSphere.lua</File>
+		<File>UI/InorganicLifeUI.xml</File>
+		<File>UI/InorganicLifeUI.lua</File>
 	</Files>
 </Mod>

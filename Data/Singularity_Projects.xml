@@ -1,3 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameData>
+	<Types>
+		<Row Type="PROJECT_CONVERT_INORGANIC_LIFE" Kind="KIND_PROJECT"/>
+	</Types>
+
+	<Projects>
+		<Row ProjectType="PROJECT_CONVERT_INORGANIC_LIFE"
+			 Name="LOC_PROJECT_CONVERT_INORGANIC_LIFE_NAME"
+			 ShortName="LOC_PROJECT_CONVERT_INORGANIC_LIFE_SHORT_NAME"
+			 Description="LOC_PROJECT_CONVERT_INORGANIC_LIFE_DESCRIPTION"
+			 Cost="600"
+			 PrereqCivic="CIVIC_SYNTHETIC_TECHNOCRACY"
+			 AdvisorType="ADVISOR_GENERIC"/>
+	</Projects>
+
+	<!-- On completion, grant the invisible marker building to this city.
+		 The Lua script checks for this building to prevent re-running. -->
+	<Modifiers>
+		<Row>
+			<ModifierId>INORGANIC_LIFE_GRANT_MARKER</ModifierId>
+			<ModifierType>MODIFIER_SINGLE_CITY_GRANT_BUILDING_IN_CITY_IGNORE_PREREQS</ModifierType>
+		</Row>
+	</Modifiers>
+	<ModifierArguments>
+		<Row><ModifierId>INORGANIC_LIFE_GRANT_MARKER</ModifierId><Name>BuildingType</Name><Value>BUILDING_INORGANIC_CITY</Value></Row>
+	</ModifierArguments>
+	<ProjectCompletionModifiers>
+		<Row ProjectType="PROJECT_CONVERT_INORGANIC_LIFE" ModifierId="INORGANIC_LIFE_GRANT_MARKER"/>
+	</ProjectCompletionModifiers>
 </GameData>

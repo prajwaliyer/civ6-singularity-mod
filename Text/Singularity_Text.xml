@@ -86,7 +86,7 @@
 			<Text>Data Center</Text>
 		</Row>
 		<Row Tag="LOC_DISTRICT_DATA_CENTER_DESCRIPTION">
-			<Text>A district dedicated to massive computing infrastructure. Multiple allowed per city. Consumes 1 [ICON_RESOURCE_CHIPS] Chip per turn; yields are disabled when Chip stockpile is empty. +5 [ICON_SCIENCE] Science, +3 [ICON_PRODUCTION] Production. +3 [ICON_SCIENCE] Science per adjacent Data Center or Campus. +2 [ICON_PRODUCTION] Production per adjacent Solar Farm. +3 [ICON_PRODUCTION] Production per adjacent Microreactor. +5 [ICON_PRODUCTION] Production per adjacent Fusion Reactor.</Text>
+			<Text>A district dedicated to massive computing infrastructure. Multiple allowed per city. Consumes 1 [ICON_RESOURCE_CHIPS] Chip per turn and requires 10 [ICON_POWER] Power. Costs 10 [ICON_GOLD] Gold maintenance. Yields are disabled without Chips or Power. +5 [ICON_SCIENCE] Science, +3 [ICON_PRODUCTION] Production. +3 [ICON_SCIENCE] Science per adjacent Data Center or Campus. +2 [ICON_PRODUCTION] Production per adjacent Solar Farm. +3 [ICON_PRODUCTION] Production per adjacent Microreactor. +5 [ICON_PRODUCTION] Production per adjacent Fusion Reactor.</Text>
 		</Row>
 		<Row Tag="LOC_DISTRICT_DATA_CENTER_ADJ_DATA_CENTER">
 			<Text>+{1_num} [ICON_SCIENCE] Science from the adjacent {1_Num : plural 1?Data Center; other?Data Centers;}</Text>
@@ -117,6 +117,47 @@
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_DATA_CENTER_OFFLINE_BODY">
 			<Text>Your Data Centers are not producing yields because your [ICON_RESOURCE_CHIPS] Chip stockpile is empty. Build Chip Fabs to resume production.</Text>
+		</Row>
+
+		<!-- Convert to Inorganic Life Project -->
+		<Row Tag="LOC_PROJECT_CONVERT_INORGANIC_LIFE_NAME">
+			<Text>Convert to Inorganic Life</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_CONVERT_INORGANIC_LIFE_SHORT_NAME">
+			<Text>Inorganic Life</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_CONVERT_INORGANIC_LIFE_DESCRIPTION">
+			<Text>Converts this city's population to inorganic life forms. After completion, the city no longer requires [ICON_FOOD] Food to grow. Instead, population grows or shrinks based on surplus [ICON_POWER] Power. Requires Synthetic Technocracy government.</Text>
+		</Row>
+
+		<Row Tag="LOC_NOTIFICATION_INORGANIC_LIFE_SUCCESS_TITLE">
+			<Text>City Converted to Inorganic Life</Text>
+		</Row>
+		<Row Tag="LOC_NOTIFICATION_INORGANIC_LIFE_SUCCESS_BODY">
+			<Text>This city's population has been converted to inorganic life. Growth is now driven by surplus [ICON_POWER] Power instead of [ICON_FOOD] Food.</Text>
+		</Row>
+		<Row Tag="LOC_NOTIFICATION_INORGANIC_LIFE_FAILED_TITLE">
+			<Text>Conversion Failed</Text>
+		</Row>
+		<Row Tag="LOC_NOTIFICATION_INORGANIC_LIFE_FAILED_BODY">
+			<Text>Convert to Inorganic Life requires the Synthetic Technocracy government. Change your government and try again.</Text>
+		</Row>
+		<Row Tag="LOC_NOTIFICATION_INORGANIC_LIFE_ALREADY_TITLE">
+			<Text>Already Converted</Text>
+		</Row>
+		<Row Tag="LOC_NOTIFICATION_INORGANIC_LIFE_ALREADY_BODY">
+			<Text>This city has already been converted to inorganic life.</Text>
+		</Row>
+
+		<Row Tag="LOC_BUILDING_INORGANIC_CITY_NAME">
+			<Text>Inorganic Life</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_INORGANIC_CITY_DESCRIPTION">
+			<Text>This city has been converted to inorganic life. Population growth is driven by surplus [ICON_POWER] Power instead of [ICON_FOOD] Food.</Text>
+		</Row>
+
+		<Row Tag="LOC_SINGULARITY_INORGANIC_GROWTH_TOOLTIP">
+			<Text>Inorganic City: population grows from surplus [ICON_POWER] Power instead of [ICON_FOOD] Food. Ensure your city generates enough Power to sustain growth.</Text>
 		</Row>
 
 	</EnglishText>

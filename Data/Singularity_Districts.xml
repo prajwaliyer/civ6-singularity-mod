@@ -30,7 +30,7 @@
 			 Appeal="-1"
 			 CityStrengthModifier="2"/>
 
-		<!-- Data Center: multiple per city, yields gated by Chip stockpile -->
+		<!-- Data Center: multiple per city, yields gated by Chips + Gold + Power -->
 		<Row DistrictType="DISTRICT_DATA_CENTER"
 			 Name="LOC_DISTRICT_DATA_CENTER_NAME"
 			 Description="LOC_DISTRICT_DATA_CENTER_DESCRIPTION"
@@ -41,7 +41,7 @@
 			 Cost="400"
 			 CostProgressionModel="COST_PROGRESSION_NUM_UNDER_AVG_PLUS_TECH"
 			 CostProgressionParam1="40"
-			 Maintenance="3"
+			 Maintenance="10"
 			 RequiresPlacement="true"
 			 RequiresPopulation="true"
 			 OnePerCity="false"
@@ -69,7 +69,7 @@
 
 	<!-- ================================================================== -->
 	<!-- Data Center modifiers: chip consumption + conditional yields        -->
-	<!-- ================================================================== -->
+	<!-- ==================================================================	-->
 
 	<!-- Each Data Center consumes 1 Chip per turn (reduces extraction rate) -->
 	<Modifiers>
@@ -77,16 +77,16 @@
 			<ModifierId>DATA_CENTER_CONSUME_CHIPS</ModifierId>
 			<ModifierType>MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_EXTRACTION</ModifierType>
 		</Row>
-		<!-- Yields only active when player has Chips in stockpile -->
+		<!-- Yields only active when player has Chips, positive Gold/turn, and city Power -->
 		<Row>
 			<ModifierId>DATA_CENTER_YIELD_SCIENCE</ModifierId>
 			<ModifierType>MODIFIER_PLAYER_DISTRICT_ADJUST_BASE_YIELD_CHANGE</ModifierType>
-			<SubjectRequirementSetId>PLAYER_HAS_CHIPS_OWNED</SubjectRequirementSetId>
+			<SubjectRequirementSetId>DATA_CENTER_YIELDS_ACTIVE</SubjectRequirementSetId>
 		</Row>
 		<Row>
 			<ModifierId>DATA_CENTER_YIELD_PRODUCTION</ModifierId>
 			<ModifierType>MODIFIER_PLAYER_DISTRICT_ADJUST_BASE_YIELD_CHANGE</ModifierType>
-			<SubjectRequirementSetId>PLAYER_HAS_CHIPS_OWNED</SubjectRequirementSetId>
+			<SubjectRequirementSetId>DATA_CENTER_YIELDS_ACTIVE</SubjectRequirementSetId>
 		</Row>
 	</Modifiers>
 
@@ -105,15 +105,17 @@
 		<Row DistrictType="DISTRICT_DATA_CENTER" ModifierId="DATA_CENTER_YIELD_PRODUCTION"/>
 	</DistrictModifiers>
 
-	<!-- Requirement: Player must have Chips in stockpile -->
+	<!-- Requirements: Data Center yields need Chips + positive Gold/turn + city Power -->
 	<RequirementSets>
-		<Row RequirementSetId="PLAYER_HAS_CHIPS_OWNED" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
+		<Row RequirementSetId="DATA_CENTER_YIELDS_ACTIVE" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
 	</RequirementSets>
 	<RequirementSetRequirements>
-		<Row RequirementSetId="PLAYER_HAS_CHIPS_OWNED" RequirementId="REQUIRES_PLAYER_HAS_CHIPS_OWNED"/>
+		<Row RequirementSetId="DATA_CENTER_YIELDS_ACTIVE" RequirementId="REQUIRES_PLAYER_HAS_CHIPS_OWNED"/>
+		<Row RequirementSetId="DATA_CENTER_YIELDS_ACTIVE" RequirementId="REQUIRES_CITY_IS_POWERED"/>
 	</RequirementSetRequirements>
 	<Requirements>
 		<Row RequirementId="REQUIRES_PLAYER_HAS_CHIPS_OWNED" RequirementType="REQUIREMENT_PLAYER_HAS_RESOURCE_OWNED"/>
+		<!-- REQUIRES_CITY_IS_POWERED already exists in base game -->
 	</Requirements>
 	<RequirementArguments>
 		<Row RequirementId="REQUIRES_PLAYER_HAS_CHIPS_OWNED" Name="ResourceType" Value="RESOURCE_CHIPS"/>

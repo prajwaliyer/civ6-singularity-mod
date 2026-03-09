@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Name="InorganicLifeUI">
+	<Grid ID="InorganicGrowthPanel" Style="CityPanel9Slice"
+		  Hidden="true" Anchor="R,T" Offset="10,200" Size="280,130">
+		<Stack ID="InfoStack" Anchor="C,C" Offset="0,0"
+			   StackGrowth="Bottom" Padding="4">
+			<Label ID="TitleLabel" String=""
+				   Style="FontNormal14" ColorSet="White"/>
+			<Label ID="PowerSurplusLabel" String=""
+				   Style="FontNormal12" ColorSet="White"/>
+			<Label ID="GrowthProgressLabel" String=""
+				   Style="FontNormal12" ColorSet="White"/>
+			<Label ID="TurnsToGrowthLabel" String=""
+				   Style="FontNormal12" ColorSet="White"/>
+		</Stack>
+	</Grid>
+</Context>
