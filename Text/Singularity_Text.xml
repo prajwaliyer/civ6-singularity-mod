@@ -221,6 +221,14 @@
 			<Text>Activate the fully deployed Dyson Swarm and harness the energy of the Sun. Your civilization achieves technological transcendence.</Text>
 		</Row>
 
+		<!-- Dyson Swarm Power Buildings (invisible) -->
+		<Row Tag="LOC_BUILDING_DYSON_POWER_NAME">
+			<Text>Dyson Swarm Power</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_DYSON_POWER_DESCRIPTION">
+			<Text>This city receives power from the Dyson Swarm orbiting the Sun.</Text>
+		</Row>
+
 		<!-- World Rankings UI -->
 		<Row Tag="LOC_SINGULARITY_SCIENCE_REQUIREMENT_4">
 			<Text>Build Dyson Swarm</Text>

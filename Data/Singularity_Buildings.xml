@@ -7,6 +7,10 @@
 		<Row Type="BUILDING_AI_DIVIDENDS"       Kind="KIND_BUILDING"/>
 		<Row Type="BUILDING_FUSION_CORE"        Kind="KIND_BUILDING"/>
 		<Row Type="BUILDING_INORGANIC_CITY"     Kind="KIND_BUILDING"/>
+		<Row Type="BUILDING_DYSON_Q1_POWER"    Kind="KIND_BUILDING"/>
+		<Row Type="BUILDING_DYSON_Q2_POWER"    Kind="KIND_BUILDING"/>
+		<Row Type="BUILDING_DYSON_Q3_POWER"    Kind="KIND_BUILDING"/>
+		<Row Type="BUILDING_DYSON_Q4_POWER"    Kind="KIND_BUILDING"/>
 	</Types>
 
 	<Buildings>
@@ -79,6 +83,32 @@
 			 PrereqDistrict="DISTRICT_CITY_CENTER"
 			 Cost="0"
 			 InternalOnly="true"/>
+
+		<!-- Invisible power buildings granted to all cities when Dyson Swarm quarters launch -->
+		<Row BuildingType="BUILDING_DYSON_Q1_POWER"
+			 Name="LOC_BUILDING_DYSON_POWER_NAME"
+			 Description="LOC_BUILDING_DYSON_POWER_DESCRIPTION"
+			 PrereqDistrict="DISTRICT_CITY_CENTER"
+			 Cost="0"
+			 InternalOnly="true"/>
+		<Row BuildingType="BUILDING_DYSON_Q2_POWER"
+			 Name="LOC_BUILDING_DYSON_POWER_NAME"
+			 Description="LOC_BUILDING_DYSON_POWER_DESCRIPTION"
+			 PrereqDistrict="DISTRICT_CITY_CENTER"
+			 Cost="0"
+			 InternalOnly="true"/>
+		<Row BuildingType="BUILDING_DYSON_Q3_POWER"
+			 Name="LOC_BUILDING_DYSON_POWER_NAME"
+			 Description="LOC_BUILDING_DYSON_POWER_DESCRIPTION"
+			 PrereqDistrict="DISTRICT_CITY_CENTER"
+			 Cost="0"
+			 InternalOnly="true"/>
+		<Row BuildingType="BUILDING_DYSON_Q4_POWER"
+			 Name="LOC_BUILDING_DYSON_POWER_NAME"
+			 Description="LOC_BUILDING_DYSON_POWER_DESCRIPTION"
+			 PrereqDistrict="DISTRICT_CITY_CENTER"
+			 Cost="0"
+			 InternalOnly="true"/>
 	</Buildings>
 
 	<!-- Build chain: Chip Fab → Advanced → Expert -->
@@ -117,6 +147,23 @@
 			<ModifierId>FUSION_CORE_GENERATE_POWER</ModifierId>
 			<ModifierType>MODIFIER_SINGLE_CITY_ADJUST_FREE_POWER</ModifierType>
 		</Row>
+		<!-- Dyson Swarm quarter power: 30 each -->
+		<Row>
+			<ModifierId>DYSON_Q1_GENERATE_POWER</ModifierId>
+			<ModifierType>MODIFIER_SINGLE_CITY_ADJUST_FREE_POWER</ModifierType>
+		</Row>
+		<Row>
+			<ModifierId>DYSON_Q2_GENERATE_POWER</ModifierId>
+			<ModifierType>MODIFIER_SINGLE_CITY_ADJUST_FREE_POWER</ModifierType>
+		</Row>
+		<Row>
+			<ModifierId>DYSON_Q3_GENERATE_POWER</ModifierId>
+			<ModifierType>MODIFIER_SINGLE_CITY_ADJUST_FREE_POWER</ModifierType>
+		</Row>
+		<Row>
+			<ModifierId>DYSON_Q4_GENERATE_POWER</ModifierId>
+			<ModifierType>MODIFIER_SINGLE_CITY_ADJUST_FREE_POWER</ModifierType>
+		</Row>
 	</Modifiers>
 
 	<!-- Requirement: Player must have at least one improved Silicon tile -->
@@ -143,6 +190,14 @@
 		<Row><ModifierId>EXPERT_CHIP_FAB_PRODUCE_CHIPS</ModifierId><Name>Amount</Name><Value>2</Value></Row>
 		<Row><ModifierId>FUSION_CORE_GENERATE_POWER</ModifierId><Name>Amount</Name><Value>16</Value></Row>
 		<Row><ModifierId>FUSION_CORE_GENERATE_POWER</ModifierId><Name>SourceType</Name><Value>FREE_POWER_SOURCE_NUCLEAR</Value></Row>
+		<Row><ModifierId>DYSON_Q1_GENERATE_POWER</ModifierId><Name>Amount</Name><Value>30</Value></Row>
+		<Row><ModifierId>DYSON_Q1_GENERATE_POWER</ModifierId><Name>SourceType</Name><Value>FREE_POWER_SOURCE_SOLAR</Value></Row>
+		<Row><ModifierId>DYSON_Q2_GENERATE_POWER</ModifierId><Name>Amount</Name><Value>30</Value></Row>
+		<Row><ModifierId>DYSON_Q2_GENERATE_POWER</ModifierId><Name>SourceType</Name><Value>FREE_POWER_SOURCE_SOLAR</Value></Row>
+		<Row><ModifierId>DYSON_Q3_GENERATE_POWER</ModifierId><Name>Amount</Name><Value>30</Value></Row>
+		<Row><ModifierId>DYSON_Q3_GENERATE_POWER</ModifierId><Name>SourceType</Name><Value>FREE_POWER_SOURCE_SOLAR</Value></Row>
+		<Row><ModifierId>DYSON_Q4_GENERATE_POWER</ModifierId><Name>Amount</Name><Value>30</Value></Row>
+		<Row><ModifierId>DYSON_Q4_GENERATE_POWER</ModifierId><Name>SourceType</Name><Value>FREE_POWER_SOURCE_SOLAR</Value></Row>
 	</ModifierArguments>
 
 	<BuildingModifiers>
@@ -151,6 +206,10 @@
 		<Row BuildingType="BUILDING_ADVANCED_CHIP_FAB"  ModifierId="ADVANCED_CHIP_FAB_PRODUCE_CHIPS"/>
 		<Row BuildingType="BUILDING_EXPERT_CHIP_FAB"    ModifierId="EXPERT_CHIP_FAB_PRODUCE_CHIPS"/>
 		<Row BuildingType="BUILDING_FUSION_CORE"        ModifierId="FUSION_CORE_GENERATE_POWER"/>
+		<Row BuildingType="BUILDING_DYSON_Q1_POWER"    ModifierId="DYSON_Q1_GENERATE_POWER"/>
+		<Row BuildingType="BUILDING_DYSON_Q2_POWER"    ModifierId="DYSON_Q2_GENERATE_POWER"/>
+		<Row BuildingType="BUILDING_DYSON_Q3_POWER"    ModifierId="DYSON_Q3_GENERATE_POWER"/>
+		<Row BuildingType="BUILDING_DYSON_Q4_POWER"    ModifierId="DYSON_Q4_GENERATE_POWER"/>
 	</BuildingModifiers>
 
 	<Building_YieldChanges>

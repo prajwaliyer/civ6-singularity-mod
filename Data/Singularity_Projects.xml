@@ -107,11 +107,12 @@
 			<ModifierId>INORGANIC_LIFE_GRANT_MARKER</ModifierId>
 			<ModifierType>MODIFIER_SINGLE_CITY_GRANT_BUILDING_IN_CITY_IGNORE_PREREQS</ModifierType>
 		</Row>
-		<!-- Complete Dyson Swarm grants 50 science VP/turn (wins next turn) -->
+		<!-- Complete Dyson Swarm grants 25 science VP/turn (wins in 2 turns) -->
 		<Row>
 			<ModifierId>DYSON_SWARM_COMPLETE_SCIENCE_VP</ModifierId>
 			<ModifierType>MODIFIER_PLAYER_ADJUST_SCIENCE_VICTORY_POINTS_PER_TURN</ModifierType>
 		</Row>
+		<!-- Power buildings granted via Lua (Singularity_DysonSphere.lua) -->
 	</Modifiers>
 
 	<ModifierArguments>
