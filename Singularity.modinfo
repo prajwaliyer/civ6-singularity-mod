@@ -33,9 +33,48 @@
 		<UpdateIcons id="SingularityIcons" criteria="Singularity_Expansion2">
 			<File>Art/Singularity_Icons.xml</File>
 		</UpdateIcons>
+		<ImportFiles id="SingularityIconTextures" criteria="Singularity_Expansion2">
+			<File>Art/silicon/silicon_256.dds</File>
+			<File>Art/silicon/silicon_80.dds</File>
+			<File>Art/silicon/silicon_50.dds</File>
+			<File>Art/silicon/silicon_38.dds</File>
+			<File>Art/silicon/silicon_32.dds</File>
+			<File>Art/silicon/silicon_22.dds</File>
+			<File>Art/silicon/silicon_fow_256.dds</File>
+			<File>Art/silicon/silicon_fow_80.dds</File>
+			<File>Art/silicon/silicon_fow_50.dds</File>
+			<File>Art/silicon/silicon_fow_38.dds</File>
+			<File>Art/silicon/silicon_fow_32.dds</File>
+			<File>Art/silicon/silicon_fow_22.dds</File>
+			<File>Art/chips/chips_256.dds</File>
+			<File>Art/chips/chips_80.dds</File>
+			<File>Art/chips/chips_50.dds</File>
+			<File>Art/chips/chips_38.dds</File>
+			<File>Art/chips/chips_32.dds</File>
+			<File>Art/chips/chips_22.dds</File>
+			<File>Art/chips/chips_fow_256.dds</File>
+			<File>Art/chips/chips_fow_80.dds</File>
+			<File>Art/chips/chips_fow_50.dds</File>
+			<File>Art/chips/chips_fow_38.dds</File>
+			<File>Art/chips/chips_fow_32.dds</File>
+			<File>Art/chips/chips_fow_22.dds</File>
+			<File>Art/silicon/silicon_font_256.dds</File>
+			<File>Art/silicon/silicon_font_80.dds</File>
+			<File>Art/silicon/silicon_font_50.dds</File>
+			<File>Art/silicon/silicon_font_38.dds</File>
+			<File>Art/silicon/silicon_font_32.dds</File>
+			<File>Art/silicon/silicon_font_22.dds</File>
+			<File>Art/chips/chips_font_256.dds</File>
+			<File>Art/chips/chips_font_80.dds</File>
+			<File>Art/chips/chips_font_50.dds</File>
+			<File>Art/chips/chips_font_38.dds</File>
+			<File>Art/chips/chips_font_32.dds</File>
+			<File>Art/chips/chips_font_22.dds</File>
+		</ImportFiles>
 		<ImportFiles id="SingularityUIReplacements" criteria="Singularity_Expansion2">
 			<File>UI/Replacements/WorldRankings.xml</File>
 			<File>UI/Replacements/WorldRankings_Expansion2.lua</File>
+			<File>UI/Replacements/TopPanel_Expansion2.lua</File>
 		</ImportFiles>
 		<AddUserInterfaces id="SingularityUI" criteria="Singularity_Expansion2">
 			<Properties>
@@ -65,6 +104,42 @@
 		<File>Data/Singularity_Victory.xml</File>
 		<File>Text/Singularity_Text.xml</File>
 		<File>Art/Singularity_Icons.xml</File>
+		<File>Art/silicon/silicon_256.dds</File>
+		<File>Art/silicon/silicon_80.dds</File>
+		<File>Art/silicon/silicon_50.dds</File>
+		<File>Art/silicon/silicon_38.dds</File>
+		<File>Art/silicon/silicon_32.dds</File>
+		<File>Art/silicon/silicon_22.dds</File>
+		<File>Art/silicon/silicon_fow_256.dds</File>
+		<File>Art/silicon/silicon_fow_80.dds</File>
+		<File>Art/silicon/silicon_fow_50.dds</File>
+		<File>Art/silicon/silicon_fow_38.dds</File>
+		<File>Art/silicon/silicon_fow_32.dds</File>
+		<File>Art/silicon/silicon_fow_22.dds</File>
+		<File>Art/chips/chips_256.dds</File>
+		<File>Art/chips/chips_80.dds</File>
+		<File>Art/chips/chips_50.dds</File>
+		<File>Art/chips/chips_38.dds</File>
+		<File>Art/chips/chips_32.dds</File>
+		<File>Art/chips/chips_22.dds</File>
+		<File>Art/chips/chips_fow_256.dds</File>
+		<File>Art/chips/chips_fow_80.dds</File>
+		<File>Art/chips/chips_fow_50.dds</File>
+		<File>Art/chips/chips_fow_38.dds</File>
+		<File>Art/chips/chips_fow_32.dds</File>
+		<File>Art/chips/chips_fow_22.dds</File>
+		<File>Art/silicon/silicon_font_256.dds</File>
+		<File>Art/silicon/silicon_font_80.dds</File>
+		<File>Art/silicon/silicon_font_50.dds</File>
+		<File>Art/silicon/silicon_font_38.dds</File>
+		<File>Art/silicon/silicon_font_32.dds</File>
+		<File>Art/silicon/silicon_font_22.dds</File>
+		<File>Art/chips/chips_font_256.dds</File>
+		<File>Art/chips/chips_font_80.dds</File>
+		<File>Art/chips/chips_font_50.dds</File>
+		<File>Art/chips/chips_font_38.dds</File>
+		<File>Art/chips/chips_font_32.dds</File>
+		<File>Art/chips/chips_font_22.dds</File>
 		<File>Scripts/Singularity_FusionReactor.lua</File>
 		<File>Scripts/Singularity_Microreactor.lua</File>
 		<File>Scripts/Singularity_DataCenter.lua</File>
@@ -77,5 +152,6 @@
 		<File>UI/InorganicLifeUI.lua</File>
 		<File>UI/Replacements/WorldRankings.xml</File>
 		<File>UI/Replacements/WorldRankings_Expansion2.lua</File>
+		<File>UI/Replacements/TopPanel_Expansion2.lua</File>
 	</Files>
 </Mod>

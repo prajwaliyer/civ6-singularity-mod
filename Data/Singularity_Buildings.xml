@@ -126,22 +126,21 @@
 			<ModifierId>INORGANIC_CITY_NO_FOOD_GROWTH</ModifierId>
 			<ModifierType>MODIFIER_SINGLE_CITY_ADJUST_CITY_GROWTH</ModifierType>
 		</Row>
-		<!-- Chip Fab resource production (requires improved Silicon) -->
+		<!-- Chip Fab: produce chips, consume silicon -->
+		<!-- Chip production -->
 		<Row>
 			<ModifierId>CHIP_FAB_PRODUCE_CHIPS</ModifierId>
-			<ModifierType>MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_EXTRACTION</ModifierType>
-			<SubjectRequirementSetId>PLAYER_HAS_IMPROVED_SILICON</SubjectRequirementSetId>
+			<ModifierType>MODIFIER_SINGLE_CITY_ADJUST_FREE_RESOURCE_EXTRACTION</ModifierType>
 		</Row>
 		<Row>
 			<ModifierId>ADVANCED_CHIP_FAB_PRODUCE_CHIPS</ModifierId>
-			<ModifierType>MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_EXTRACTION</ModifierType>
-			<SubjectRequirementSetId>PLAYER_HAS_IMPROVED_SILICON</SubjectRequirementSetId>
+			<ModifierType>MODIFIER_SINGLE_CITY_ADJUST_FREE_RESOURCE_EXTRACTION</ModifierType>
 		</Row>
 		<Row>
 			<ModifierId>EXPERT_CHIP_FAB_PRODUCE_CHIPS</ModifierId>
-			<ModifierType>MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_EXTRACTION</ModifierType>
-			<SubjectRequirementSetId>PLAYER_HAS_IMPROVED_SILICON</SubjectRequirementSetId>
+			<ModifierType>MODIFIER_SINGLE_CITY_ADJUST_FREE_RESOURCE_EXTRACTION</ModifierType>
 		</Row>
+		<!-- Silicon consumption handled by Lua + custom TopPanel UI -->
 		<!-- Fusion Core: 16 free Power -->
 		<Row>
 			<ModifierId>FUSION_CORE_GENERATE_POWER</ModifierId>

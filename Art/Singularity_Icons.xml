@@ -1,11 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameInfo>
+	<IconTextureAtlases>
+		<!-- Silicon resource icon atlas -->
+		<Row Name="ICON_ATLAS_SILICON" IconSize="256" IconsPerRow="1" IconsPerColumn="1" Filename="silicon_256.dds"/>
+		<Row Name="ICON_ATLAS_SILICON" IconSize="80"  IconsPerRow="1" IconsPerColumn="1" Filename="silicon_80.dds"/>
+		<Row Name="ICON_ATLAS_SILICON" IconSize="50"  IconsPerRow="1" IconsPerColumn="1" Filename="silicon_50.dds"/>
+		<Row Name="ICON_ATLAS_SILICON" IconSize="38"  IconsPerRow="1" IconsPerColumn="1" Filename="silicon_38.dds"/>
+		<Row Name="ICON_ATLAS_SILICON" IconSize="32"  IconsPerRow="1" IconsPerColumn="1" Filename="silicon_32.dds"/>
+		<Row Name="ICON_ATLAS_SILICON" IconSize="22"  IconsPerRow="1" IconsPerColumn="1" Filename="silicon_22.dds"/>
+
+		<!-- Silicon FOW atlas -->
+		<Row Name="ICON_ATLAS_SILICON_FOW" IconSize="256" IconsPerRow="1" IconsPerColumn="1" Filename="silicon_fow_256.dds"/>
+		<Row Name="ICON_ATLAS_SILICON_FOW" IconSize="80"  IconsPerRow="1" IconsPerColumn="1" Filename="silicon_fow_80.dds"/>
+		<Row Name="ICON_ATLAS_SILICON_FOW" IconSize="50"  IconsPerRow="1" IconsPerColumn="1" Filename="silicon_fow_50.dds"/>
+		<Row Name="ICON_ATLAS_SILICON_FOW" IconSize="38"  IconsPerRow="1" IconsPerColumn="1" Filename="silicon_fow_38.dds"/>
+		<Row Name="ICON_ATLAS_SILICON_FOW" IconSize="32"  IconsPerRow="1" IconsPerColumn="1" Filename="silicon_fow_32.dds"/>
+		<Row Name="ICON_ATLAS_SILICON_FOW" IconSize="22"  IconsPerRow="1" IconsPerColumn="1" Filename="silicon_fow_22.dds"/>
+
+		<!-- Chips resource icon atlas -->
+		<Row Name="ICON_ATLAS_CHIPS" IconSize="256" IconsPerRow="1" IconsPerColumn="1" Filename="chips_256.dds"/>
+		<Row Name="ICON_ATLAS_CHIPS" IconSize="80"  IconsPerRow="1" IconsPerColumn="1" Filename="chips_80.dds"/>
+		<Row Name="ICON_ATLAS_CHIPS" IconSize="50"  IconsPerRow="1" IconsPerColumn="1" Filename="chips_50.dds"/>
+		<Row Name="ICON_ATLAS_CHIPS" IconSize="38"  IconsPerRow="1" IconsPerColumn="1" Filename="chips_38.dds"/>
+		<Row Name="ICON_ATLAS_CHIPS" IconSize="32"  IconsPerRow="1" IconsPerColumn="1" Filename="chips_32.dds"/>
+		<Row Name="ICON_ATLAS_CHIPS" IconSize="22"  IconsPerRow="1" IconsPerColumn="1" Filename="chips_22.dds"/>
+
+		<!-- Chips FOW atlas -->
+		<Row Name="ICON_ATLAS_CHIPS_FOW" IconSize="256" IconsPerRow="1" IconsPerColumn="1" Filename="chips_fow_256.dds"/>
+		<Row Name="ICON_ATLAS_CHIPS_FOW" IconSize="80"  IconsPerRow="1" IconsPerColumn="1" Filename="chips_fow_80.dds"/>
+		<Row Name="ICON_ATLAS_CHIPS_FOW" IconSize="50"  IconsPerRow="1" IconsPerColumn="1" Filename="chips_fow_50.dds"/>
+		<Row Name="ICON_ATLAS_CHIPS_FOW" IconSize="38"  IconsPerRow="1" IconsPerColumn="1" Filename="chips_fow_38.dds"/>
+		<Row Name="ICON_ATLAS_CHIPS_FOW" IconSize="32"  IconsPerRow="1" IconsPerColumn="1" Filename="chips_fow_32.dds"/>
+		<Row Name="ICON_ATLAS_CHIPS_FOW" IconSize="22"  IconsPerRow="1" IconsPerColumn="1" Filename="chips_fow_22.dds"/>
+
+		<!-- Silicon font icon atlas (no background, for top bar) - Baseline="6" matches vanilla alignment -->
+		<Row Name="ICON_ATLAS_SILICON_FONT" Baseline="6" IconSize="22" IconsPerRow="1" IconsPerColumn="1" Filename="silicon_font_22.dds"/>
+
+		<!-- Chips font icon atlas (no background, for top bar) -->
+		<Row Name="ICON_ATLAS_CHIPS_FONT" Baseline="6" IconSize="22" IconsPerRow="1" IconsPerColumn="1" Filename="chips_font_22.dds"/>
+	</IconTextureAtlases>
+
 	<IconDefinitions>
-		<!-- Placeholder: reuse Aluminum icon until custom art is made -->
-		<Row Name="ICON_RESOURCE_SILICON"     Atlas="ICON_ATLAS_RESOURCES"     Index="40"/>
-		<Row Name="ICON_RESOURCE_SILICON_FOW" Atlas="ICON_ATLAS_RESOURCES_FOW" Index="40"/>
-		<!-- Font icon for top resource bar (reuse Aluminum font icon, index 89) -->
-		<Row Name="RESOURCE_SILICON"          Atlas="ICON_ATLAS_FONT_ICON_BASELINE_6" Index="89"/>
+		<!-- Silicon resource - custom icons -->
+		<Row Name="ICON_RESOURCE_SILICON"     Atlas="ICON_ATLAS_SILICON"     Index="0"/>
+		<Row Name="ICON_RESOURCE_SILICON_FOW" Atlas="ICON_ATLAS_SILICON_FOW" Index="0"/>
+		<Row Name="RESOURCE_SILICON"          Atlas="ICON_ATLAS_SILICON_FONT" Index="0"/>
+
+		<!-- Chips resource - custom icons -->
+		<Row Name="ICON_RESOURCE_CHIPS"     Atlas="ICON_ATLAS_CHIPS"     Index="0"/>
+		<Row Name="ICON_RESOURCE_CHIPS_FOW" Atlas="ICON_ATLAS_CHIPS_FOW" Index="0"/>
+		<Row Name="RESOURCE_CHIPS"          Atlas="ICON_ATLAS_CHIPS_FONT" Index="0"/>
 
 		<!-- Placeholder: reuse Electronics Factory icon (index 27) for all Chip Fabs -->
 		<Row Name="ICON_BUILDING_CHIP_FAB"              Atlas="ICON_ATLAS_BUILDINGS" Index="27"/>
@@ -22,11 +66,6 @@
 		<!-- Placeholder: reuse Industrial Zone building icon for Fusion Core -->
 		<Row Name="ICON_BUILDING_FUSION_CORE"     Atlas="ICON_ATLAS_BUILDINGS" Index="27"/>
 		<Row Name="ICON_BUILDING_FUSION_CORE_FOW" Atlas="ICON_ATLAS_BUILDINGS" Index="27"/>
-
-		<!-- Placeholder: reuse Aluminum icon for Chips resource -->
-		<Row Name="ICON_RESOURCE_CHIPS"     Atlas="ICON_ATLAS_RESOURCES"     Index="40"/>
-		<Row Name="ICON_RESOURCE_CHIPS_FOW" Atlas="ICON_ATLAS_RESOURCES_FOW" Index="40"/>
-		<Row Name="RESOURCE_CHIPS"          Atlas="ICON_ATLAS_FONT_ICON_BASELINE_6" Index="89"/>
 
 		<!-- Placeholder: reuse a building icon for districts and improvements -->
 		<Row Name="ICON_DISTRICT_FUSION_REACTOR"     Atlas="ICON_ATLAS_BUILDINGS" Index="27"/>

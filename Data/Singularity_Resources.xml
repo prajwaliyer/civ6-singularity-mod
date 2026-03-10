@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameData>
-	<!-- Register Silicon as a new type -->
+	<!-- Register both resources as types -->
 	<Types>
 		<Row Type="RESOURCE_SILICON" Kind="KIND_RESOURCE"/>
+		<Row Type="RESOURCE_CHIPS" Kind="KIND_RESOURCE"/>
 	</Types>
 
-	<!-- Tag it as a Production/Science strategic resource -->
+	<!-- Tag them as strategic resources -->
 	<TypeTags>
 		<Row Type="RESOURCE_SILICON" Tag="CLASS_PRODUCTION"/>
 		<Row Type="RESOURCE_SILICON" Tag="CLASS_SCIENCE"/>
+		<Row Type="RESOURCE_CHIPS" Tag="CLASS_PRODUCTION"/>
+		<Row Type="RESOURCE_CHIPS" Tag="CLASS_SCIENCE"/>
 	</TypeTags>
 
-	<!-- Define the resource properties -->
+	<!-- Define resource properties -->
 	<Resources>
 		<Row ResourceType="RESOURCE_SILICON"
 			 Name="LOC_RESOURCE_SILICON_NAME"
@@ -19,6 +22,12 @@
 			 Frequency="8"
 			 PrereqTech="TECH_ELECTRICITY"
 			 RevealedEra="6"/>
+		<Row ResourceType="RESOURCE_CHIPS"
+			 Name="LOC_RESOURCE_CHIPS_NAME"
+			 ResourceClassType="RESOURCECLASS_STRATEGIC"
+			 Frequency="0"
+			 PrereqTech="TECH_COMPUTERS"
+			 RevealedEra="7"/>
 	</Resources>
 
 	<!-- Valid terrain placements: Desert flats, Desert hills, Coast -->
@@ -39,30 +48,9 @@
 		<Row ImprovementType="IMPROVEMENT_MINE" ResourceType="RESOURCE_SILICON"/>
 	</Improvement_ValidResources>
 
-	<!-- GS accumulation: Mine extracts 2/turn, stockpile cap 50 -->
+	<!-- GS accumulation settings -->
 	<Resource_Consumption>
 		<Row ResourceType="RESOURCE_SILICON" Accumulate="true" BaseExtractionRate="0" ImprovedExtractionRate="2" StockpileCap="50"/>
-	</Resource_Consumption>
-
-	<!-- ================================================================ -->
-	<!-- Chips — manufactured strategic resource, not found on the map    -->
-	<!-- Produced by Chip Fab buildings in the Industrial Zone            -->
-	<!-- ================================================================ -->
-	<Types>
-		<Row Type="RESOURCE_CHIPS" Kind="KIND_RESOURCE"/>
-	</Types>
-
-	<Resources>
-		<Row ResourceType="RESOURCE_CHIPS"
-			 Name="LOC_RESOURCE_CHIPS_NAME"
-			 ResourceClassType="RESOURCECLASS_STRATEGIC"
-			 Frequency="0"
-			 PrereqTech="TECH_COMPUTERS"
-			 RevealedEra="7"/>
-	</Resources>
-
-	<!-- GS accumulation: no natural extraction, high stockpile cap -->
-	<Resource_Consumption>
 		<Row ResourceType="RESOURCE_CHIPS" Accumulate="true" BaseExtractionRate="0" ImprovedExtractionRate="0" StockpileCap="100"/>
 	</Resource_Consumption>
 </GameData>
