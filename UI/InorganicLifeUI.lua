@@ -13,8 +13,6 @@ local m_TurnsToGrowth     = Controls.TurnsToGrowthLabel
 local m_DebugLabel1       = Controls.DebugLabel1
 local m_DebugLabel2       = Controls.DebugLabel2
 
--- Local accumulation for display only (reset on reload, but gameplay is authoritative)
-local g_accumulated = {}
 
 -- ---------------------------------------------------------------------------
 -- Power surplus calculation (UI context only)
@@ -74,21 +72,6 @@ function SendPowerDataToGameplay()
 				ExposedMembers.SingularityPower[cityID] = powerSurplus
 				ExposedMembers.SingularityThreshold[cityID] = threshold
 			end
-
-
-			-- Update local display accumulation
-			local growth = city:GetGrowth()
-			if growth then
-				local threshold = growth:GetGrowthThreshold()
-				local acc = g_accumulated[cityID] or 0
-				acc = acc + powerSurplus
-				if acc >= threshold and threshold > 0 then
-					acc = acc - threshold
-				elseif acc < 0 and math.abs(acc) >= threshold then
-					acc = acc + threshold
-				end
-				g_accumulated[cityID] = acc
-			end
 		end
 	end
 end
@@ -117,7 +100,7 @@ function RefreshPanel()
 	local pop          = selectedCity:GetPopulation()
 	local powerSurplus = GetCityPowerSurplus(selectedCity)
 	local cityID       = selectedCity:GetID()
-	local accumulated  = g_accumulated[cityID] or 0
+	local accumulated  = selectedCity:GetProperty("POWER_GROWTH") or 0
 	local threshold    = growth:GetGrowthThreshold()
 
 	-- Line 1: Population
