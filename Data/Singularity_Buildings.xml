@@ -96,6 +96,7 @@
 			<ModifierId>INORGANIC_CITY_NO_FOOD_GROWTH</ModifierId>
 			<ModifierType>MODIFIER_SINGLE_CITY_ADJUST_CITY_GROWTH</ModifierType>
 		</Row>
+		<!-- Chip Fab resource production (requires improved Silicon) -->
 		<Row>
 			<ModifierId>CHIP_FAB_PRODUCE_CHIPS</ModifierId>
 			<ModifierType>MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_EXTRACTION</ModifierType>
@@ -110,6 +111,11 @@
 			<ModifierId>EXPERT_CHIP_FAB_PRODUCE_CHIPS</ModifierId>
 			<ModifierType>MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_EXTRACTION</ModifierType>
 			<SubjectRequirementSetId>PLAYER_HAS_IMPROVED_SILICON</SubjectRequirementSetId>
+		</Row>
+		<!-- Fusion Core: 16 free Power -->
+		<Row>
+			<ModifierId>FUSION_CORE_GENERATE_POWER</ModifierId>
+			<ModifierType>MODIFIER_SINGLE_CITY_ADJUST_FREE_POWER</ModifierType>
 		</Row>
 	</Modifiers>
 
@@ -135,6 +141,8 @@
 		<Row><ModifierId>ADVANCED_CHIP_FAB_PRODUCE_CHIPS</ModifierId><Name>Amount</Name><Value>2</Value></Row>
 		<Row><ModifierId>EXPERT_CHIP_FAB_PRODUCE_CHIPS</ModifierId><Name>ResourceType</Name><Value>RESOURCE_CHIPS</Value></Row>
 		<Row><ModifierId>EXPERT_CHIP_FAB_PRODUCE_CHIPS</ModifierId><Name>Amount</Name><Value>2</Value></Row>
+		<Row><ModifierId>FUSION_CORE_GENERATE_POWER</ModifierId><Name>Amount</Name><Value>16</Value></Row>
+		<Row><ModifierId>FUSION_CORE_GENERATE_POWER</ModifierId><Name>SourceType</Name><Value>FREE_POWER_SOURCE_NUCLEAR</Value></Row>
 	</ModifierArguments>
 
 	<BuildingModifiers>
@@ -142,6 +150,7 @@
 		<Row BuildingType="BUILDING_CHIP_FAB"          ModifierId="CHIP_FAB_PRODUCE_CHIPS"/>
 		<Row BuildingType="BUILDING_ADVANCED_CHIP_FAB"  ModifierId="ADVANCED_CHIP_FAB_PRODUCE_CHIPS"/>
 		<Row BuildingType="BUILDING_EXPERT_CHIP_FAB"    ModifierId="EXPERT_CHIP_FAB_PRODUCE_CHIPS"/>
+		<Row BuildingType="BUILDING_FUSION_CORE"        ModifierId="FUSION_CORE_GENERATE_POWER"/>
 	</BuildingModifiers>
 
 	<Building_YieldChanges>
@@ -153,9 +162,4 @@
 		<Row BuildingType="BUILDING_AI_DIVIDENDS"       YieldType="YIELD_GOLD"       YieldChange="10"/>
 		<Row BuildingType="BUILDING_FUSION_CORE"        YieldType="YIELD_SCIENCE"    YieldChange="3"/>
 	</Building_YieldChanges>
-
-	<!-- Fusion Core power plant config (GS) — consumes Uranium, provides 16 Power, regional range 6 -->
-	<Buildings_XP2>
-		<Row BuildingType="BUILDING_FUSION_CORE" ResourceTypeConvertedToPower="RESOURCE_URANIUM"/>
-	</Buildings_XP2>
 </GameData>

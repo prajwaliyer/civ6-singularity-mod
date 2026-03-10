@@ -10,6 +10,8 @@ local m_TitleLabel        = Controls.TitleLabel
 local m_PowerSurplusLabel = Controls.PowerSurplusLabel
 local m_GrowthProgress    = Controls.GrowthProgressLabel
 local m_TurnsToGrowth     = Controls.TurnsToGrowthLabel
+local m_DebugLabel1       = Controls.DebugLabel1
+local m_DebugLabel2       = Controls.DebugLabel2
 
 -- Local accumulation for display only (reset on reload, but gameplay is authoritative)
 local g_accumulated = {}
@@ -153,6 +155,29 @@ function RefreshPanel()
 
 	-- Line 4: Growth progress bar
 	m_GrowthProgress:SetText("[ICON_POWER] " .. accumulated .. " / " .. threshold)
+
+	-- Debug: raw power breakdown
+	local pPower = selectedCity:GetPower()
+	if pPower then
+		local free = pPower:GetFreePower() or 0
+		local temp = pPower:GetTemporaryPower() or 0
+		local generated = 0
+		local srcCount = 0
+		local sources = pPower:GetGeneratedPowerSources()
+		if sources then
+			for _, src in ipairs(sources) do
+				generated = generated + (src.Amount or 0)
+				srcCount = srcCount + 1
+			end
+		end
+		local required = pPower:GetRequiredPower() or 0
+		local popCost = pop * POWER_PER_CITIZEN
+		m_DebugLabel1:SetText("free=" .. free .. " temp=" .. temp .. " gen=" .. generated)
+		m_DebugLabel2:SetText("req=" .. required .. " popCost=" .. popCost .. " net=" .. (free+temp+generated-required-popCost))
+	else
+		m_DebugLabel1:SetText("pPower=nil")
+		m_DebugLabel2:SetText("")
+	end
 
 	m_Panel:SetHide(false)
 end

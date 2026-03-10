@@ -105,8 +105,42 @@ function OnRandomEventOccurred(eventType, severity, plotX, plotY, mitigationLeve
 end
 
 -- ============================================================================
+-- Consume 1 Uranium per Fusion Reactor per turn
+-- ============================================================================
+local RESOURCE_URANIUM = GameInfo.Resources["RESOURCE_URANIUM"]
+
+function OnPlayerTurnActivated_FusionFuel(playerID, isFirstTime)
+	if not isFirstTime then return end
+	if DISTRICT_FUSION_REACTOR == nil then return end
+	if RESOURCE_URANIUM == nil then return end
+
+	local pPlayer = Players[playerID]
+	if pPlayer == nil or not pPlayer:IsMajor() then return end
+
+	local uraniumIndex = RESOURCE_URANIUM.Index
+	local cities = pPlayer:GetCities()
+	for _, city in cities:Members() do
+		local districts = city:GetDistricts()
+		if districts then
+			for _, district in districts:Members() do
+				if district:GetType() == DISTRICT_FUSION_REACTOR.Index and not district:IsPillaged() then
+					local pResources = pPlayer:GetResources()
+					if pResources then
+						local stock = pResources:GetResourceAmount(uraniumIndex)
+						if stock > 0 then
+							pResources:ChangeResourceAmount(uraniumIndex, -1)
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
+-- ============================================================================
 -- Register event listeners
 -- ============================================================================
+Events.PlayerTurnActivated.Add(OnPlayerTurnActivated_FusionFuel)
 Events.DistrictPillaged.Add(OnDistrictPillaged)
 Events.TurnBegin.Add(OnTurnBegin)
 
