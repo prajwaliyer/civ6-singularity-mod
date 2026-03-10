@@ -2,9 +2,15 @@
 <GameData>
 	<Types>
 		<Row Type="PROJECT_CONVERT_INORGANIC_LIFE" Kind="KIND_PROJECT"/>
+		<Row Type="PROJECT_BUILD_DYSON_SWARM" Kind="KIND_PROJECT"/>
+		<Row Type="PROJECT_LAUNCH_DYSON_SWARM_Q1" Kind="KIND_PROJECT"/>
+		<Row Type="PROJECT_LAUNCH_DYSON_SWARM_Q2" Kind="KIND_PROJECT"/>
+		<Row Type="PROJECT_LAUNCH_DYSON_SWARM_Q3" Kind="KIND_PROJECT"/>
+		<Row Type="PROJECT_LAUNCH_DYSON_SWARM_Q4" Kind="KIND_PROJECT"/>
 	</Types>
 
 	<Projects>
+		<!-- Convert to Inorganic Life (existing) -->
 		<Row ProjectType="PROJECT_CONVERT_INORGANIC_LIFE"
 			 Name="LOC_PROJECT_CONVERT_INORGANIC_LIFE_NAME"
 			 ShortName="LOC_PROJECT_CONVERT_INORGANIC_LIFE_SHORT_NAME"
@@ -12,19 +18,107 @@
 			 Cost="600"
 			 PrereqCivic="CIVIC_SYNTHETIC_TECHNOCRACY"
 			 AdvisorType="ADVISOR_GENERIC"/>
+
+		<!-- Build Dyson Swarm: R&D phase, unlocks after Mars Base -->
+		<Row ProjectType="PROJECT_BUILD_DYSON_SWARM"
+			 Name="LOC_PROJECT_BUILD_DYSON_SWARM_NAME"
+			 ShortName="LOC_PROJECT_BUILD_DYSON_SWARM_SHORT_NAME"
+			 Description="LOC_PROJECT_BUILD_DYSON_SWARM_DESCRIPTION"
+			 Cost="1500"
+			 CostProgressionModel="NO_PROGRESSION_MODEL"
+			 PrereqTech="TECH_OFFWORLD_MISSION"
+			 PrereqDistrict="DISTRICT_SPACEPORT"
+			 SpaceRace="1"
+			 MaxPlayerInstances="1"
+			 AdvisorType="ADVISOR_TECHNOLOGY"/>
+
+		<!-- Launch Dyson Swarm Quarter 1 -->
+		<Row ProjectType="PROJECT_LAUNCH_DYSON_SWARM_Q1"
+			 Name="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q1_NAME"
+			 ShortName="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q1_SHORT_NAME"
+			 Description="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q1_DESCRIPTION"
+			 Cost="1800"
+			 CostProgressionModel="NO_PROGRESSION_MODEL"
+			 PrereqTech="TECH_OFFWORLD_MISSION"
+			 PrereqDistrict="DISTRICT_SPACEPORT"
+			 VisualBuildingType="BUILDING_LARGE_ROCKET"
+			 SpaceRace="1"
+			 MaxPlayerInstances="1"
+			 AdvisorType="ADVISOR_TECHNOLOGY"/>
+
+		<!-- Launch Dyson Swarm Quarter 2 -->
+		<Row ProjectType="PROJECT_LAUNCH_DYSON_SWARM_Q2"
+			 Name="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q2_NAME"
+			 ShortName="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q2_SHORT_NAME"
+			 Description="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q2_DESCRIPTION"
+			 Cost="1800"
+			 CostProgressionModel="NO_PROGRESSION_MODEL"
+			 PrereqTech="TECH_OFFWORLD_MISSION"
+			 PrereqDistrict="DISTRICT_SPACEPORT"
+			 VisualBuildingType="BUILDING_LARGE_ROCKET"
+			 SpaceRace="1"
+			 MaxPlayerInstances="1"
+			 AdvisorType="ADVISOR_TECHNOLOGY"/>
+
+		<!-- Launch Dyson Swarm Quarter 3 -->
+		<Row ProjectType="PROJECT_LAUNCH_DYSON_SWARM_Q3"
+			 Name="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q3_NAME"
+			 ShortName="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q3_SHORT_NAME"
+			 Description="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q3_DESCRIPTION"
+			 Cost="1800"
+			 CostProgressionModel="NO_PROGRESSION_MODEL"
+			 PrereqTech="TECH_OFFWORLD_MISSION"
+			 PrereqDistrict="DISTRICT_SPACEPORT"
+			 VisualBuildingType="BUILDING_LARGE_ROCKET"
+			 SpaceRace="1"
+			 MaxPlayerInstances="1"
+			 AdvisorType="ADVISOR_TECHNOLOGY"/>
+
+		<!-- Launch Dyson Swarm Quarter 4 -->
+		<Row ProjectType="PROJECT_LAUNCH_DYSON_SWARM_Q4"
+			 Name="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q4_NAME"
+			 ShortName="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q4_SHORT_NAME"
+			 Description="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q4_DESCRIPTION"
+			 Cost="1800"
+			 CostProgressionModel="NO_PROGRESSION_MODEL"
+			 PrereqTech="TECH_OFFWORLD_MISSION"
+			 PrereqDistrict="DISTRICT_SPACEPORT"
+			 VisualBuildingType="BUILDING_LARGE_ROCKET"
+			 SpaceRace="1"
+			 MaxPlayerInstances="1"
+			 AdvisorType="ADVISOR_TECHNOLOGY"/>
 	</Projects>
 
-	<!-- On completion, grant the invisible marker building to this city.
-		 The Lua script checks for this building to prevent re-running. -->
+	<!-- Project prerequisite chain -->
+	<ProjectPrereqs>
+		<!-- Build Dyson Swarm requires Mars Base -->
+		<Row ProjectType="PROJECT_BUILD_DYSON_SWARM" PrereqProjectType="PROJECT_LAUNCH_MARS_BASE" MinimumPlayerInstances="1"/>
+		<!-- All 4 quarter launches require Build Dyson Swarm -->
+		<Row ProjectType="PROJECT_LAUNCH_DYSON_SWARM_Q1" PrereqProjectType="PROJECT_BUILD_DYSON_SWARM" MinimumPlayerInstances="1"/>
+		<Row ProjectType="PROJECT_LAUNCH_DYSON_SWARM_Q2" PrereqProjectType="PROJECT_BUILD_DYSON_SWARM" MinimumPlayerInstances="1"/>
+		<Row ProjectType="PROJECT_LAUNCH_DYSON_SWARM_Q3" PrereqProjectType="PROJECT_BUILD_DYSON_SWARM" MinimumPlayerInstances="1"/>
+		<Row ProjectType="PROJECT_LAUNCH_DYSON_SWARM_Q4" PrereqProjectType="PROJECT_BUILD_DYSON_SWARM" MinimumPlayerInstances="1"/>
+	</ProjectPrereqs>
+
+	<!-- Modifiers -->
 	<Modifiers>
+		<!-- Inorganic Life marker building grant (existing) -->
 		<Row>
 			<ModifierId>INORGANIC_LIFE_GRANT_MARKER</ModifierId>
 			<ModifierType>MODIFIER_SINGLE_CITY_GRANT_BUILDING_IN_CITY_IGNORE_PREREQS</ModifierType>
 		</Row>
+		<!-- Complete Dyson Swarm grants 50 science VP/turn (wins next turn) -->
+		<Row>
+			<ModifierId>DYSON_SWARM_COMPLETE_SCIENCE_VP</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_ADJUST_SCIENCE_VICTORY_POINTS_PER_TURN</ModifierType>
+		</Row>
 	</Modifiers>
+
 	<ModifierArguments>
 		<Row><ModifierId>INORGANIC_LIFE_GRANT_MARKER</ModifierId><Name>BuildingType</Name><Value>BUILDING_INORGANIC_CITY</Value></Row>
+		<Row><ModifierId>DYSON_SWARM_COMPLETE_SCIENCE_VP</ModifierId><Name>Amount</Name><Value>25</Value></Row>
 	</ModifierArguments>
+
 	<ProjectCompletionModifiers>
 		<Row ProjectType="PROJECT_CONVERT_INORGANIC_LIFE" ModifierId="INORGANIC_LIFE_GRANT_MARKER"/>
 	</ProjectCompletionModifiers>

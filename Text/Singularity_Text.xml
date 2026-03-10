@@ -160,5 +160,80 @@
 			<Text>Inorganic City: population grows from surplus [ICON_POWER] Power instead of [ICON_FOOD] Food. Ensure your city generates enough Power to sustain growth.</Text>
 		</Row>
 
+		<!-- Dyson Swarm Projects -->
+		<Row Tag="LOC_PROJECT_BUILD_DYSON_SWARM_NAME">
+			<Text>Build Dyson Swarm</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_BUILD_DYSON_SWARM_SHORT_NAME">
+			<Text>Dyson Swarm</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_BUILD_DYSON_SWARM_DESCRIPTION">
+			<Text>Design and manufacture the components for a Dyson Swarm — a vast array of solar collectors that will envelop the Sun. Once complete, four launches are required to deploy the swarm in orbit.</Text>
+		</Row>
+
+		<Row Tag="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q1_NAME">
+			<Text>Launch Dyson Swarm: Quarter 1</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q1_SHORT_NAME">
+			<Text>Dyson Q1</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q1_DESCRIPTION">
+			<Text>Launch the first quarter of the Dyson Swarm solar collector array into orbit around the Sun.</Text>
+		</Row>
+
+		<Row Tag="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q2_NAME">
+			<Text>Launch Dyson Swarm: Quarter 2</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q2_SHORT_NAME">
+			<Text>Dyson Q2</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q2_DESCRIPTION">
+			<Text>Launch the second quarter of the Dyson Swarm solar collector array into orbit around the Sun.</Text>
+		</Row>
+
+		<Row Tag="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q3_NAME">
+			<Text>Launch Dyson Swarm: Quarter 3</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q3_SHORT_NAME">
+			<Text>Dyson Q3</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q3_DESCRIPTION">
+			<Text>Launch the third quarter of the Dyson Swarm solar collector array into orbit around the Sun.</Text>
+		</Row>
+
+		<Row Tag="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q4_NAME">
+			<Text>Launch Dyson Swarm: Quarter 4</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q4_SHORT_NAME">
+			<Text>Dyson Q4</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_LAUNCH_DYSON_SWARM_Q4_DESCRIPTION">
+			<Text>Launch the fourth and final quarter of the Dyson Swarm solar collector array into orbit around the Sun.</Text>
+		</Row>
+
+		<Row Tag="LOC_PROJECT_COMPLETE_DYSON_SWARM_NAME">
+			<Text>Complete Dyson Swarm</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_COMPLETE_DYSON_SWARM_SHORT_NAME">
+			<Text>Complete Dyson</Text>
+		</Row>
+		<Row Tag="LOC_PROJECT_COMPLETE_DYSON_SWARM_DESCRIPTION">
+			<Text>Activate the fully deployed Dyson Swarm and harness the energy of the Sun. Your civilization achieves technological transcendence.</Text>
+		</Row>
+
+		<!-- World Rankings UI -->
+		<Row Tag="LOC_SINGULARITY_SCIENCE_REQUIREMENT_4">
+			<Text>Build Dyson Swarm</Text>
+		</Row>
+		<Row Tag="LOC_SINGULARITY_SCIENCE_REQUIREMENT_5">
+			<Text>Complete Dyson Swarm</Text>
+		</Row>
+		<Row Tag="LOC_SINGULARITY_DYSON_SWARM_NOT_COMPLETED">
+			<Text>Dyson Swarm has not been completed.</Text>
+		</Row>
+		<Row Tag="LOC_SINGULARITY_DYSON_SWARM_COMPLETING">
+			<Text>Dyson Swarm will be completed in one turn.</Text>
+		</Row>
+
 	</EnglishText>
 </GameData>

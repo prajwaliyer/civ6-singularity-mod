@@ -33,6 +33,10 @@
 		<UpdateIcons id="SingularityIcons" criteria="Singularity_Expansion2">
 			<File>Art/Singularity_Icons.xml</File>
 		</UpdateIcons>
+		<ImportFiles id="SingularityUIReplacements" criteria="Singularity_Expansion2">
+			<File>UI/Replacements/WorldRankings.xml</File>
+			<File>UI/Replacements/WorldRankings_Expansion2.lua</File>
+		</ImportFiles>
 		<AddUserInterfaces id="SingularityUI" criteria="Singularity_Expansion2">
 			<Properties>
 				<Context>InGame</Context>
@@ -71,5 +75,7 @@
 		<File>Scripts/Singularity_DysonSphere.lua</File>
 		<File>UI/InorganicLifeUI.xml</File>
 		<File>UI/InorganicLifeUI.lua</File>
+		<File>UI/Replacements/WorldRankings.xml</File>
+		<File>UI/Replacements/WorldRankings_Expansion2.lua</File>
 	</Files>
 </Mod>

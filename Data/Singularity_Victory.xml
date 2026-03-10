@@ -1,3 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GameData>
+	<!-- ================================================================== -->
+	<!-- Repurpose Exoplanet Expedition as "Complete Dyson Swarm"            -->
+	<!-- This lets the World Rankings UI track it automatically.            -->
+	<!-- ================================================================== -->
+
+	<!-- Rename and reconfigure the Exoplanet Expedition project -->
+	<Projects>
+		<Update>
+			<Set Name="LOC_PROJECT_COMPLETE_DYSON_SWARM_NAME"
+				 ShortName="LOC_PROJECT_COMPLETE_DYSON_SWARM_SHORT_NAME"
+				 Description="LOC_PROJECT_COMPLETE_DYSON_SWARM_DESCRIPTION"
+				 Cost="1200"
+				 PrereqTech="TECH_OFFWORLD_MISSION"/>
+			<Where ProjectType="PROJECT_LAUNCH_EXOPLANET_EXPEDITION"/>
+		</Update>
+		<!-- Delete laser booster projects -->
+		<Delete ProjectType="PROJECT_ORBITAL_LASER"/>
+		<Delete ProjectType="PROJECT_TERRESTRIAL_LASER"/>
+	</Projects>
+
+	<!-- Remove old prereq chain (Mars Base -> Exoplanet) and laser prereqs -->
+	<ProjectPrereqs>
+		<Delete ProjectType="PROJECT_LAUNCH_EXOPLANET_EXPEDITION"/>
+		<Delete ProjectType="PROJECT_ORBITAL_LASER"/>
+		<Delete ProjectType="PROJECT_TERRESTRIAL_LASER"/>
+		<!-- New chain: all 4 quarter launches required before Complete -->
+		<Row ProjectType="PROJECT_LAUNCH_EXOPLANET_EXPEDITION" PrereqProjectType="PROJECT_LAUNCH_DYSON_SWARM_Q1" MinimumPlayerInstances="1"/>
+		<Row ProjectType="PROJECT_LAUNCH_EXOPLANET_EXPEDITION" PrereqProjectType="PROJECT_LAUNCH_DYSON_SWARM_Q2" MinimumPlayerInstances="1"/>
+		<Row ProjectType="PROJECT_LAUNCH_EXOPLANET_EXPEDITION" PrereqProjectType="PROJECT_LAUNCH_DYSON_SWARM_Q3" MinimumPlayerInstances="1"/>
+		<Row ProjectType="PROJECT_LAUNCH_EXOPLANET_EXPEDITION" PrereqProjectType="PROJECT_LAUNCH_DYSON_SWARM_Q4" MinimumPlayerInstances="1"/>
+	</ProjectPrereqs>
+
+	<!-- Replace old VP modifier with our instant-win modifier (50 VP/turn) -->
+	<ProjectCompletionModifiers>
+		<Delete ProjectType="PROJECT_LAUNCH_EXOPLANET_EXPEDITION"/>
+		<Delete ProjectType="PROJECT_ORBITAL_LASER"/>
+		<Delete ProjectType="PROJECT_TERRESTRIAL_LASER"/>
+		<Row ProjectType="PROJECT_LAUNCH_EXOPLANET_EXPEDITION" ModifierId="DYSON_SWARM_COMPLETE_SCIENCE_VP"/>
+	</ProjectCompletionModifiers>
 </GameData>
