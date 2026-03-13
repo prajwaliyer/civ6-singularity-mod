@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<AssetObjects..GameArtSpecification>
+  <id>
+    <name text="Singularity"/>
+    <id text="DECD3DF6-230E-4F38-AD11-13F2BCA8437D"/>
+  </id>
+  <artConsumers>
+    <Element>
+      <consumerName text="Landmarks"/>
+      <relativeArtDefPaths>
+        <Element text="Landmarks.artdef"/>
+      </relativeArtDefPaths>
+      <libraryDependencies>
+        <Element text="CityBuildings"/>
+        <Element text="TileBase"/>
+        <Element text="RouteDecalMaterial"/>
+        <Element text="Landmark"/>
+      </libraryDependencies>
+      <loadsLibraries>true</loadsLibraries>
+    </Element>
+    <Element>
+      <consumerName text="Districts"/>
+      <relativeArtDefPaths>
+        <Element text="Districts.artdef"/>
+        <Element text="Landmarks.artdef"/>
+      </relativeArtDefPaths>
+      <libraryDependencies>
+        <Element text="CityBuildings"/>
+        <Element text="TileBase"/>
+        <Element text="RouteDecalMaterial"/>
+      </libraryDependencies>
+      <loadsLibraries>true</loadsLibraries>
+    </Element>
+  </artConsumers>
+  <gameLibraries>
+    <Element>
+      <libraryName text="TileBase"/>
+      <relativePackagePaths>
+        <Element text="landmarks/tilebases"/>
+      </relativePackagePaths>
+    </Element>
+    <Element>
+      <libraryName text="CityBuildings"/>
+      <relativePackagePaths/>
+    </Element>
+    <Element>
+      <libraryName text="RouteDecalMaterial"/>
+      <relativePackagePaths/>
+    </Element>
+    <Element>
+      <libraryName text="Landmark"/>
+      <relativePackagePaths/>
+    </Element>
+  </gameLibraries>
+  <requiredGameArtIDs>
+    <Element>
+      <name text="Expansion1"/>
+      <id text="7446c8fe-29eb-44f8-801f-098f681cc5c5"/>
+    </Element>
+    <Element>
+      <name text="Expansion2"/>
+      <id text="b1b63999-6b16-4dd2-a5b6-eb19794aa8ca"/>
+    </Element>
+  </requiredGameArtIDs>
+</AssetObjects..GameArtSpecification>

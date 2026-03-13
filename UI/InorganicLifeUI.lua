@@ -223,6 +223,145 @@ if Events.LocalPlayerTurnEnd then
 	Events.LocalPlayerTurnEnd.Add(OnLocalPlayerTurnEnd)
 end
 
+-- ---------------------------------------------------------------------------
+-- ART DEBUG: Always-visible panel to diagnose district rendering
+-- ---------------------------------------------------------------------------
+local dbgLines = {}
+for i = 1, 10 do
+	dbgLines[i] = Controls["ArtDebugLine" .. i]
+end
+
+function ClearDebugLines()
+	for i = 1, 10 do
+		dbgLines[i]:SetText("")
+	end
+end
+
+function SetDebugLine(n, text)
+	if dbgLines[n] then
+		dbgLines[n]:SetText(text)
+	end
+end
+
+function RefreshArtDebug()
+	ClearDebugLines()
+
+	local ok, err = pcall(function()
+		local localPlayerID = Game.GetLocalPlayer()
+		if localPlayerID == nil or localPlayerID == -1 then
+			SetDebugLine(1, "No local player")
+			return
+		end
+
+		-- Check GameInfo
+		local dcInfo = GameInfo.Districts["DISTRICT_DATA_CENTER"]
+		if dcInfo then
+			SetDebugLine(1, "GameInfo: DC Index=" .. dcInfo.Index .. " player=" .. localPlayerID)
+		else
+			SetDebugLine(1, "[COLOR_RED]DC NOT IN GAMEINFO[ENDCOLOR]")
+			return
+		end
+
+		local pPlayer = Players[localPlayerID]
+		if pPlayer == nil then
+			SetDebugLine(2, "Player nil")
+			return
+		end
+
+		local cities = pPlayer:GetCities()
+		if cities == nil then
+			SetDebugLine(2, "Cities nil")
+			return
+		end
+
+		local cityCount = 0
+		local dcCount = 0
+		local line = 2
+
+		for _, city in cities:Members() do
+			cityCount = cityCount + 1
+			local cityName = city:GetName() or "?"
+
+			-- Check if this city has a DC by looking at the plot for each known district type
+			local pDistricts = city:GetDistricts()
+			local hasDC = false
+			if pDistricts then
+				hasDC = pDistricts:HasDistrict(dcInfo.Index)
+			end
+
+			if hasDC then
+				dcCount = dcCount + 1
+				-- Find the DC plot by scanning city plots
+				local dcX, dcY = -1, -1
+				local cityPlots = Map.GetCityPlots():GetPurchasedPlots(city)
+				if cityPlots then
+					for _, plotIdx in ipairs(cityPlots) do
+						local pPlot = Map.GetPlotByIndex(plotIdx)
+						if pPlot and pPlot:GetDistrictType() == dcInfo.Index then
+							dcX = pPlot:GetX()
+							dcY = pPlot:GetY()
+							break
+						end
+					end
+				end
+				local pDistrict = pDistricts:GetDistrict(dcInfo.Index)
+				local isComplete = false
+				local isPillaged = false
+				if pDistrict then
+					isComplete = pDistrict:IsComplete()
+					isPillaged = pDistrict:IsPillaged()
+				end
+				SetDebugLine(line, cityName .. ": HAS DC at(" .. dcX .. "," .. dcY .. ") complete=" .. tostring(isComplete) .. " pillaged=" .. tostring(isPillaged))
+				line = line + 1
+
+				if dcX >= 0 then
+					local pPlot = Map.GetPlot(dcX, dcY)
+					if pPlot then
+						local plotDist = pPlot:GetDistrictType()
+						local plotTerrain = pPlot:GetTerrainType()
+						local plotFeature = pPlot:GetFeatureType()
+						SetDebugLine(line, "  plotDist=" .. plotDist .. " terrain=" .. plotTerrain .. " feature=" .. plotFeature)
+						line = line + 1
+					end
+				end
+			else
+				SetDebugLine(line, cityName .. ": no DC")
+				line = line + 1
+			end
+			if line > 9 then break end
+		end
+
+		SetDebugLine(line, "cities=" .. cityCount .. " DCs=" .. dcCount)
+	end)
+
+	if not ok then
+		SetDebugLine(10, "[COLOR_RED]ERR: " .. tostring(err) .. "[ENDCOLOR]")
+	end
+end
+
+-- Refresh art debug on various events
+function OnArtDebugRefresh()
+	RefreshArtDebug()
+end
+
+Events.CitySelectionChanged.Add(OnArtDebugRefresh)
+Events.TurnBegin.Add(OnArtDebugRefresh)
+if Events.DistrictBuildProgressChanged then
+	Events.DistrictBuildProgressChanged.Add(function(playerID, districtID, cityID, x, y, districtType, era, civilization, percentComplete)
+		print("SINGULARITY_DEBUG: DistrictBuildProgress player=" .. tostring(playerID) .. " distType=" .. tostring(districtType) .. " at (" .. tostring(x) .. "," .. tostring(y) .. ") pct=" .. tostring(percentComplete))
+		RefreshArtDebug()
+	end)
+end
+if Events.DistrictCompleted then
+	Events.DistrictCompleted.Add(function(playerID, districtID, cityID, x, y, districtType, era, civilization)
+		print("SINGULARITY_DEBUG: DistrictCompleted player=" .. tostring(playerID) .. " distType=" .. tostring(districtType) .. " at (" .. tostring(x) .. "," .. tostring(y) .. ")")
+		RefreshArtDebug()
+	end)
+end
+
+-- Initial refresh
+RefreshArtDebug()
+
 -- Initial state
 m_Panel:SetHide(true)
-print("Singularity: InorganicLifeUI loaded (v4 - LuaEvents)")
+print("Singularity: InorganicLifeUI loaded (v5 - ArtDebug)")

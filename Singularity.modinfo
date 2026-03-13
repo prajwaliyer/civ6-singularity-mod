@@ -82,6 +82,9 @@
 			</Properties>
 			<File>UI/InorganicLifeUI.xml</File>
 		</AddUserInterfaces>
+		<UpdateArt id="SingularityArt" criteria="Singularity_Expansion2">
+			<File>Singularity.dep</File>
+		</UpdateArt>
 		<AddGameplayScripts id="SingularityScripts" criteria="Singularity_Expansion2">
 			<File>Scripts/Singularity_FusionReactor.lua</File>
 			<File>Scripts/Singularity_Microreactor.lua</File>
@@ -94,6 +97,24 @@
 		</AddGameplayScripts>
 	</InGameActions>
 	<Files>
+		<File>Singularity.dep</File>
+		<File>Singularity.Art.xml</File>
+		<File>ArtDefs/Landmarks.artdef</File>
+		<File>ArtDefs/Districts.artdef</File>
+		<File>XLPs/tilebases.xlp</File>
+		<File>Platforms/Windows/BLPs/landmarks/tilebases.blp</File>
+		<File>Platforms/Windows/BLPs/SHARED_DATA/TEXTURE_Burn_BaseColor</File>
+		<File>Platforms/Windows/BLPs/SHARED_DATA/TEXTURE_Burn_G</File>
+		<File>Platforms/Windows/BLPs/SHARED_DATA/TEXTURE_DiffuseTint_DataCenter_Texture_null</File>
+		<File>Platforms/Windows/BLPs/SHARED_DATA/TEXTURE_ProceduralNoiseTexture2D_0x304656c5</File>
+		<File>Assets/DataCenter_District.ast</File>
+		<File>Geometries/DataCenter_District.fgx</File>
+		<File>Geometries/DataCenter_District.geo</File>
+		<File>Materials/DataCenter_01.mtl</File>
+		<File>Materials/DataCenter_02.mtl</File>
+		<File>Materials/DataCenter_03.mtl</File>
+		<File>Textures/DataCenter_Texture.dds</File>
+		<File>Textures/DataCenter_Texture.tex</File>
 		<File>Data/Singularity_Resources.xml</File>
 		<File>Data/Singularity_Buildings.xml</File>
 		<File>Data/Singularity_Districts.xml</File>
