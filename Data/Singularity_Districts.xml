@@ -38,12 +38,12 @@
 			 PlunderType="PLUNDER_SCIENCE"
 			 PlunderAmount="50"
 			 AdvisorType="ADVISOR_GENERIC"
-			 Cost="400"
-			 CostProgressionModel="COST_PROGRESSION_NUM_UNDER_AVG_PLUS_TECH"
-			 CostProgressionParam1="40"
+			 Cost="1800"
+			 CostProgressionModel="NO_COST_PROGRESSION"
+			 CostProgressionParam1="0"
 			 Maintenance="10"
 			 RequiresPlacement="true"
-			 RequiresPopulation="true"
+			 RequiresPopulation="false"
 			 OnePerCity="false"
 			 Aqueduct="false"
 			 NoAdjacentCity="false"
@@ -72,9 +72,18 @@
 	<!-- ==================================================================	-->
 
 	<!-- Each Data Center consumes 1 Chip per turn (reduces extraction rate) -->
+	<!-- Each Data Center consumes 10 Power (attached via Lua per district instance) -->
 	<Modifiers>
 		<Row>
-			<ModifierId>DATA_CENTER_CONSUME_CHIPS</ModifierId>
+			<ModifierId>DATA_CENTER_CONSUME_POWER</ModifierId>
+			<ModifierType>MODIFIER_SINGLE_CITY_ADJUST_FREE_POWER</ModifierType>
+		</Row>
+		<Row>
+			<ModifierId>DATA_CENTER_CONSUME_GPU</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_EXTRACTION</ModifierType>
+		</Row>
+		<Row>
+			<ModifierId>DATA_CENTER_CONSUME_DRAM</ModifierId>
 			<ModifierType>MODIFIER_PLAYER_ADJUST_FREE_RESOURCE_EXTRACTION</ModifierType>
 		</Row>
 		<!-- Yields only active when player has Chips, positive Gold/turn, and city Power -->
@@ -91,33 +100,41 @@
 	</Modifiers>
 
 	<ModifierArguments>
-		<Row><ModifierId>DATA_CENTER_CONSUME_CHIPS</ModifierId><Name>ResourceType</Name><Value>RESOURCE_CHIPS</Value></Row>
-		<Row><ModifierId>DATA_CENTER_CONSUME_CHIPS</ModifierId><Name>Amount</Name><Value>-1</Value></Row>
+		<Row><ModifierId>DATA_CENTER_CONSUME_POWER</ModifierId><Name>Amount</Name><Value>-10</Value></Row>
+		<Row><ModifierId>DATA_CENTER_CONSUME_POWER</ModifierId><Name>SourceType</Name><Value>FREE_POWER_SOURCE_NUCLEAR</Value></Row>
+		<Row><ModifierId>DATA_CENTER_CONSUME_GPU</ModifierId><Name>ResourceType</Name><Value>RESOURCE_GPU</Value></Row>
+		<Row><ModifierId>DATA_CENTER_CONSUME_GPU</ModifierId><Name>Amount</Name><Value>-1</Value></Row>
+		<Row><ModifierId>DATA_CENTER_CONSUME_DRAM</ModifierId><Name>ResourceType</Name><Value>RESOURCE_DRAM</Value></Row>
+		<Row><ModifierId>DATA_CENTER_CONSUME_DRAM</ModifierId><Name>Amount</Name><Value>-1</Value></Row>
 		<Row><ModifierId>DATA_CENTER_YIELD_SCIENCE</ModifierId><Name>YieldType</Name><Value>YIELD_SCIENCE</Value></Row>
 		<Row><ModifierId>DATA_CENTER_YIELD_SCIENCE</ModifierId><Name>Amount</Name><Value>5</Value></Row>
 		<Row><ModifierId>DATA_CENTER_YIELD_PRODUCTION</ModifierId><Name>YieldType</Name><Value>YIELD_PRODUCTION</Value></Row>
-		<Row><ModifierId>DATA_CENTER_YIELD_PRODUCTION</ModifierId><Name>Amount</Name><Value>3</Value></Row>
+		<Row><ModifierId>DATA_CENTER_YIELD_PRODUCTION</ModifierId><Name>Amount</Name><Value>5</Value></Row>
 	</ModifierArguments>
 
 	<DistrictModifiers>
-		<Row DistrictType="DISTRICT_DATA_CENTER" ModifierId="DATA_CENTER_CONSUME_CHIPS"/>
+		<Row DistrictType="DISTRICT_DATA_CENTER" ModifierId="DATA_CENTER_CONSUME_GPU"/>
+		<Row DistrictType="DISTRICT_DATA_CENTER" ModifierId="DATA_CENTER_CONSUME_DRAM"/>
 		<Row DistrictType="DISTRICT_DATA_CENTER" ModifierId="DATA_CENTER_YIELD_SCIENCE"/>
 		<Row DistrictType="DISTRICT_DATA_CENTER" ModifierId="DATA_CENTER_YIELD_PRODUCTION"/>
 	</DistrictModifiers>
 
-	<!-- Requirements: Data Center yields need Chips + positive Gold/turn + city Power -->
+	<!-- Requirements: Data Center yields need GPU + DRAM + city Power -->
 	<RequirementSets>
 		<Row RequirementSetId="DATA_CENTER_YIELDS_ACTIVE" RequirementSetType="REQUIREMENTSET_TEST_ALL"/>
 	</RequirementSets>
 	<RequirementSetRequirements>
-		<Row RequirementSetId="DATA_CENTER_YIELDS_ACTIVE" RequirementId="REQUIRES_PLAYER_HAS_CHIPS_OWNED"/>
+		<Row RequirementSetId="DATA_CENTER_YIELDS_ACTIVE" RequirementId="REQUIRES_PLAYER_HAS_GPU_OWNED"/>
+		<Row RequirementSetId="DATA_CENTER_YIELDS_ACTIVE" RequirementId="REQUIRES_PLAYER_HAS_DRAM_OWNED"/>
 		<Row RequirementSetId="DATA_CENTER_YIELDS_ACTIVE" RequirementId="REQUIRES_CITY_IS_POWERED"/>
 	</RequirementSetRequirements>
 	<Requirements>
-		<Row RequirementId="REQUIRES_PLAYER_HAS_CHIPS_OWNED" RequirementType="REQUIREMENT_PLAYER_HAS_RESOURCE_OWNED"/>
+		<Row RequirementId="REQUIRES_PLAYER_HAS_GPU_OWNED" RequirementType="REQUIREMENT_PLAYER_HAS_RESOURCE_OWNED"/>
+		<Row RequirementId="REQUIRES_PLAYER_HAS_DRAM_OWNED" RequirementType="REQUIREMENT_PLAYER_HAS_RESOURCE_OWNED"/>
 		<!-- REQUIRES_CITY_IS_POWERED already exists in base game -->
 	</Requirements>
 	<RequirementArguments>
-		<Row RequirementId="REQUIRES_PLAYER_HAS_CHIPS_OWNED" Name="ResourceType" Value="RESOURCE_CHIPS"/>
+		<Row RequirementId="REQUIRES_PLAYER_HAS_GPU_OWNED" Name="ResourceType" Value="RESOURCE_GPU"/>
+		<Row RequirementId="REQUIRES_PLAYER_HAS_DRAM_OWNED" Name="ResourceType" Value="RESOURCE_DRAM"/>
 	</RequirementArguments>
 </GameData>

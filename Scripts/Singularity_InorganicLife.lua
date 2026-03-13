@@ -75,14 +75,19 @@ function OnPlayerTurnActivated(playerID, isFirstTime)
 			local threshold = GetCityGrowthThreshold(cityID)
 			local accumulated = city:GetProperty("POWER_GROWTH") or 0
 			local currentPop = city:GetPopulation()
-			accumulated = accumulated + powerSurplus
-
-			if accumulated >= threshold and threshold > 0 then
-				city:ChangePopulation(1)
-				accumulated = accumulated - threshold
-			elseif accumulated < 0 and math.abs(accumulated) >= threshold and currentPop > 1 then
-				city:ChangePopulation(-1)
-				accumulated = accumulated + threshold
+			if powerSurplus < 0 then
+				-- Deficit: immediately lose 1 pop per turn, reset accumulator
+				if currentPop > 1 then
+					city:ChangePopulation(-1)
+				end
+				accumulated = 0
+			else
+				-- Surplus: accumulate toward next pop
+				accumulated = accumulated + powerSurplus
+				if accumulated >= threshold and threshold > 0 then
+					city:ChangePopulation(1)
+					accumulated = accumulated - threshold
+				end
 			end
 
 			city:SetProperty("POWER_GROWTH", accumulated)

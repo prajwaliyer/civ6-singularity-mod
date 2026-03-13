@@ -26,6 +26,7 @@
 			<File>Data/Singularity_Units.xml</File>
 			<File>Data/Singularity_Projects.xml</File>
 			<File>Data/Singularity_Victory.xml</File>
+			<File>Data/Singularity_Overrides.xml</File>
 		</UpdateDatabase>
 		<UpdateText id="SingularityText" criteria="Singularity_Expansion2">
 			<File>Text/Singularity_Text.xml</File>
@@ -70,11 +71,39 @@
 			<File>Art/chips/chips_font_38.dds</File>
 			<File>Art/chips/chips_font_32.dds</File>
 			<File>Art/chips/chips_font_22.dds</File>
+			<File>Art/gpu/gpu_256.dds</File>
+			<File>Art/gpu/gpu_80.dds</File>
+			<File>Art/gpu/gpu_50.dds</File>
+			<File>Art/gpu/gpu_38.dds</File>
+			<File>Art/gpu/gpu_32.dds</File>
+			<File>Art/gpu/gpu_22.dds</File>
+			<File>Art/gpu/gpu_fow_256.dds</File>
+			<File>Art/gpu/gpu_fow_80.dds</File>
+			<File>Art/gpu/gpu_fow_50.dds</File>
+			<File>Art/gpu/gpu_fow_38.dds</File>
+			<File>Art/gpu/gpu_fow_32.dds</File>
+			<File>Art/gpu/gpu_fow_22.dds</File>
+			<File>Art/gpu/gpu_font_22.dds</File>
+			<File>Art/dram/dram_256.dds</File>
+			<File>Art/dram/dram_80.dds</File>
+			<File>Art/dram/dram_50.dds</File>
+			<File>Art/dram/dram_38.dds</File>
+			<File>Art/dram/dram_32.dds</File>
+			<File>Art/dram/dram_22.dds</File>
+			<File>Art/dram/dram_fow_256.dds</File>
+			<File>Art/dram/dram_fow_80.dds</File>
+			<File>Art/dram/dram_fow_50.dds</File>
+			<File>Art/dram/dram_fow_38.dds</File>
+			<File>Art/dram/dram_fow_32.dds</File>
+			<File>Art/dram/dram_fow_22.dds</File>
+			<File>Art/dram/dram_font_22.dds</File>
 		</ImportFiles>
 		<ImportFiles id="SingularityUIReplacements" criteria="Singularity_Expansion2">
 			<File>UI/Replacements/WorldRankings.xml</File>
 			<File>UI/Replacements/WorldRankings_Expansion2.lua</File>
 			<File>UI/Replacements/TopPanel_Expansion2.lua</File>
+			<File>UI/Replacements/CityPanelPower.lua</File>
+			<File>UI/Replacements/CityBannerManager.lua</File>
 		</ImportFiles>
 		<AddUserInterfaces id="SingularityUI" criteria="Singularity_Expansion2">
 			<Properties>
@@ -94,6 +123,7 @@
 			<File>Scripts/Singularity_InorganicLife.lua</File>
 			<File>Scripts/Singularity_RogueAI.lua</File>
 			<File>Scripts/Singularity_DysonSphere.lua</File>
+			<File>Scripts/Singularity_GpuDram.lua</File>
 		</AddGameplayScripts>
 	</InGameActions>
 	<Files>
@@ -123,6 +153,7 @@
 		<File>Data/Singularity_Units.xml</File>
 		<File>Data/Singularity_Projects.xml</File>
 		<File>Data/Singularity_Victory.xml</File>
+		<File>Data/Singularity_Overrides.xml</File>
 		<File>Text/Singularity_Text.xml</File>
 		<File>Art/Singularity_Icons.xml</File>
 		<File>Art/silicon/silicon_256.dds</File>
@@ -169,10 +200,39 @@
 		<File>Scripts/Singularity_InorganicLife.lua</File>
 		<File>Scripts/Singularity_RogueAI.lua</File>
 		<File>Scripts/Singularity_DysonSphere.lua</File>
+		<File>Scripts/Singularity_GpuDram.lua</File>
+		<File>Art/gpu/gpu_256.dds</File>
+		<File>Art/gpu/gpu_80.dds</File>
+		<File>Art/gpu/gpu_50.dds</File>
+		<File>Art/gpu/gpu_38.dds</File>
+		<File>Art/gpu/gpu_32.dds</File>
+		<File>Art/gpu/gpu_22.dds</File>
+		<File>Art/gpu/gpu_fow_256.dds</File>
+		<File>Art/gpu/gpu_fow_80.dds</File>
+		<File>Art/gpu/gpu_fow_50.dds</File>
+		<File>Art/gpu/gpu_fow_38.dds</File>
+		<File>Art/gpu/gpu_fow_32.dds</File>
+		<File>Art/gpu/gpu_fow_22.dds</File>
+		<File>Art/gpu/gpu_font_22.dds</File>
+		<File>Art/dram/dram_256.dds</File>
+		<File>Art/dram/dram_80.dds</File>
+		<File>Art/dram/dram_50.dds</File>
+		<File>Art/dram/dram_38.dds</File>
+		<File>Art/dram/dram_32.dds</File>
+		<File>Art/dram/dram_22.dds</File>
+		<File>Art/dram/dram_fow_256.dds</File>
+		<File>Art/dram/dram_fow_80.dds</File>
+		<File>Art/dram/dram_fow_50.dds</File>
+		<File>Art/dram/dram_fow_38.dds</File>
+		<File>Art/dram/dram_fow_32.dds</File>
+		<File>Art/dram/dram_fow_22.dds</File>
+		<File>Art/dram/dram_font_22.dds</File>
 		<File>UI/InorganicLifeUI.xml</File>
 		<File>UI/InorganicLifeUI.lua</File>
 		<File>UI/Replacements/WorldRankings.xml</File>
 		<File>UI/Replacements/WorldRankings_Expansion2.lua</File>
 		<File>UI/Replacements/TopPanel_Expansion2.lua</File>
+		<File>UI/Replacements/CityPanelPower.lua</File>
+		<File>UI/Replacements/CityBannerManager.lua</File>
 	</Files>
 </Mod>

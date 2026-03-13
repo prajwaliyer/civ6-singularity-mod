@@ -37,6 +37,9 @@ function RefreshResources()
 		-- Read Singularity custom rates from player properties
 		local siliconConsumption:number = localPlayer:GetProperty("SINGULARITY_SILICON_CONSUMPTION") or 0;
 		local chipsBlocked:number = localPlayer:GetProperty("SINGULARITY_CHIPS_BLOCKED") or 0;
+		local chipsForGpuDram:number = localPlayer:GetProperty("SINGULARITY_CHIPS_FOR_GPU_DRAM") or 0;
+		local gpuBlocked:number = localPlayer:GetProperty("SINGULARITY_GPU_BLOCKED") or 0;
+		local dramBlocked:number = localPlayer:GetProperty("SINGULARITY_DRAM_BLOCKED") or 0;
 
 		for resource in GameInfo.Resources() do
 			if (resource.ResourceClassType ~= nil and resource.ResourceClassType ~= "RESOURCECLASS_BONUS" and resource.ResourceClassType ~="RESOURCECLASS_LUXURY" and resource.ResourceClassType ~="RESOURCECLASS_ARTIFACT") then
@@ -58,6 +61,12 @@ function RefreshResources()
 					singularityConsumption = siliconConsumption;
 					totalConsumptionPerTurn = totalConsumptionPerTurn + singularityConsumption;
 				end
+				-- Singularity: add GPU/DRAM consumption for chips
+				local gpuDramChipConsumption:number = 0;
+				if (resource.ResourceType == "RESOURCE_CHIPS" and chipsForGpuDram > 0) then
+					gpuDramChipConsumption = chipsForGpuDram;
+					totalConsumptionPerTurn = totalConsumptionPerTurn + gpuDramChipConsumption;
+				end
 
 				if (totalAmount > stockpileCap) then
 					totalAmount = stockpileCap;
@@ -70,6 +79,13 @@ function RefreshResources()
 				-- Singularity: subtract blocked chip production from displayed accumulation
 				if (resource.ResourceType == "RESOURCE_CHIPS" and chipsBlocked > 0) then
 					totalAccumulationPerTurn = math.max(0, totalAccumulationPerTurn - chipsBlocked);
+				end
+				-- Singularity: subtract blocked GPU/DRAM production from displayed accumulation
+				if (resource.ResourceType == "RESOURCE_GPU" and gpuBlocked > 0) then
+					totalAccumulationPerTurn = math.max(0, totalAccumulationPerTurn - gpuBlocked);
+				end
+				if (resource.ResourceType == "RESOURCE_DRAM" and dramBlocked > 0) then
+					totalAccumulationPerTurn = math.max(0, totalAccumulationPerTurn - dramBlocked);
 				end
 
 				resourceText = iconName .. " " .. stockpileAmount;
@@ -111,7 +127,11 @@ function RefreshResources()
 					end
 					-- Singularity: show chip fab consumption
 					if (singularityConsumption > 0) then
-						tooltip = tooltip .. "[NEWLINE] [ICON_BULLET][COLOR_RED]-" .. singularityConsumption .. " for Production[ENDCOLOR]";
+						tooltip = tooltip .. "[NEWLINE] [ICON_BULLET][COLOR_RED]-" .. singularityConsumption .. " for Chip Fabs[ENDCOLOR]";
+					end
+					-- Singularity: show GPU/DRAM consumption of chips
+					if (gpuDramChipConsumption > 0) then
+						tooltip = tooltip .. "[NEWLINE] [ICON_BULLET][COLOR_RED]-" .. gpuDramChipConsumption .. " for GPU/DRAM[ENDCOLOR]";
 					end
 				end
 

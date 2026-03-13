@@ -4,6 +4,8 @@
 	<Types>
 		<Row Type="RESOURCE_SILICON" Kind="KIND_RESOURCE"/>
 		<Row Type="RESOURCE_CHIPS" Kind="KIND_RESOURCE"/>
+		<Row Type="RESOURCE_GPU" Kind="KIND_RESOURCE"/>
+		<Row Type="RESOURCE_DRAM" Kind="KIND_RESOURCE"/>
 	</Types>
 
 	<!-- Tag them as strategic resources -->
@@ -12,6 +14,10 @@
 		<Row Type="RESOURCE_SILICON" Tag="CLASS_SCIENCE"/>
 		<Row Type="RESOURCE_CHIPS" Tag="CLASS_PRODUCTION"/>
 		<Row Type="RESOURCE_CHIPS" Tag="CLASS_SCIENCE"/>
+		<Row Type="RESOURCE_GPU" Tag="CLASS_PRODUCTION"/>
+		<Row Type="RESOURCE_GPU" Tag="CLASS_SCIENCE"/>
+		<Row Type="RESOURCE_DRAM" Tag="CLASS_PRODUCTION"/>
+		<Row Type="RESOURCE_DRAM" Tag="CLASS_SCIENCE"/>
 	</TypeTags>
 
 	<!-- Define resource properties -->
@@ -19,7 +25,7 @@
 		<Row ResourceType="RESOURCE_SILICON"
 			 Name="LOC_RESOURCE_SILICON_NAME"
 			 ResourceClassType="RESOURCECLASS_STRATEGIC"
-			 Frequency="8"
+			 Frequency="16"
 			 PrereqTech="TECH_ELECTRICITY"
 			 RevealedEra="6"/>
 		<Row ResourceType="RESOURCE_CHIPS"
@@ -28,6 +34,18 @@
 			 Frequency="0"
 			 PrereqTech="TECH_COMPUTERS"
 			 RevealedEra="7"/>
+		<Row ResourceType="RESOURCE_GPU"
+			 Name="LOC_RESOURCE_GPU_NAME"
+			 ResourceClassType="RESOURCECLASS_STRATEGIC"
+			 Frequency="0"
+			 PrereqTech="TECH_ROBOTICS"
+			 RevealedEra="8"/>
+		<Row ResourceType="RESOURCE_DRAM"
+			 Name="LOC_RESOURCE_DRAM_NAME"
+			 ResourceClassType="RESOURCECLASS_STRATEGIC"
+			 Frequency="0"
+			 PrereqTech="TECH_ROBOTICS"
+			 RevealedEra="8"/>
 	</Resources>
 
 	<!-- Valid terrain placements: Desert flats, Desert hills, Coast -->
@@ -52,5 +70,7 @@
 	<Resource_Consumption>
 		<Row ResourceType="RESOURCE_SILICON" Accumulate="true" BaseExtractionRate="0" ImprovedExtractionRate="2" StockpileCap="50"/>
 		<Row ResourceType="RESOURCE_CHIPS" Accumulate="true" BaseExtractionRate="0" ImprovedExtractionRate="0" StockpileCap="100"/>
+		<Row ResourceType="RESOURCE_GPU" Accumulate="true" BaseExtractionRate="0" ImprovedExtractionRate="0" StockpileCap="100"/>
+		<Row ResourceType="RESOURCE_DRAM" Accumulate="true" BaseExtractionRate="0" ImprovedExtractionRate="0" StockpileCap="100"/>
 	</Resource_Consumption>
 </GameData>

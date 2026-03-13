@@ -25,6 +25,38 @@
 			<Text>A manufactured strategic resource produced by Chip Fab buildings in the Industrial Zone. Required for Data Centers and advanced computing infrastructure.</Text>
 		</Row>
 
+		<!-- GPU Resource -->
+		<Row Tag="LOC_RESOURCE_GPU_NAME">
+			<Text>GPUs</Text>
+		</Row>
+		<Row Tag="LOC_RESOURCE_GPU_DESCRIPTION">
+			<Text>A manufactured strategic resource produced by GPU Specialization buildings in the Industrial Zone. Consumes Chips to produce.</Text>
+		</Row>
+
+		<!-- DRAM Resource -->
+		<Row Tag="LOC_RESOURCE_DRAM_NAME">
+			<Text>DRAM</Text>
+		</Row>
+		<Row Tag="LOC_RESOURCE_DRAM_DESCRIPTION">
+			<Text>A manufactured strategic resource produced by DRAM Specialization buildings in the Industrial Zone. Consumes Chips to produce.</Text>
+		</Row>
+
+		<!-- GPU Specialization Building -->
+		<Row Tag="LOC_BUILDING_GPU_SPECIALIZATION_NAME">
+			<Text>GPU Specialization</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_GPU_SPECIALIZATION_DESCRIPTION">
+			<Text>Industrial Zone building. Specializes chip production for graphics processing. Mutually exclusive with DRAM Specialization. +2 [ICON_PRODUCTION] Production, +1 [ICON_SCIENCE] Science. Produces 1 [ICON_RESOURCE_GPU] GPU per turn (consumes 1 [ICON_RESOURCE_CHIPS] Chip).</Text>
+		</Row>
+
+		<!-- DRAM Specialization Building -->
+		<Row Tag="LOC_BUILDING_DRAM_SPECIALIZATION_NAME">
+			<Text>DRAM Specialization</Text>
+		</Row>
+		<Row Tag="LOC_BUILDING_DRAM_SPECIALIZATION_DESCRIPTION">
+			<Text>Industrial Zone building. Specializes chip production for memory modules. Mutually exclusive with GPU Specialization. +2 [ICON_PRODUCTION] Production, +1 [ICON_SCIENCE] Science. Produces 1 [ICON_RESOURCE_DRAM] DRAM per turn (consumes 1 [ICON_RESOURCE_CHIPS] Chip).</Text>
+		</Row>
+
 		<!-- Chip Fab Buildings -->
 		<Row Tag="LOC_BUILDING_CHIP_FAB_NAME">
 			<Text>Chip Fab</Text>
@@ -86,7 +118,7 @@
 			<Text>Data Center</Text>
 		</Row>
 		<Row Tag="LOC_DISTRICT_DATA_CENTER_DESCRIPTION">
-			<Text>A district dedicated to massive computing infrastructure. Multiple allowed per city. Consumes 1 [ICON_RESOURCE_CHIPS] Chip per turn and requires 10 [ICON_POWER] Power. Costs 10 [ICON_GOLD] Gold maintenance. Yields are disabled without Chips or Power. +5 [ICON_SCIENCE] Science, +3 [ICON_PRODUCTION] Production. +3 [ICON_SCIENCE] Science per adjacent Data Center or Campus. +2 [ICON_PRODUCTION] Production per adjacent Solar Farm. +3 [ICON_PRODUCTION] Production per adjacent Microreactor. +5 [ICON_PRODUCTION] Production per adjacent Fusion Reactor.</Text>
+			<Text>A district dedicated to massive computing infrastructure. Multiple allowed per city. Consumes 1 [ICON_RESOURCE_GPU] GPU and 1 [ICON_RESOURCE_DRAM] DRAM per turn and requires 10 [ICON_POWER] Power. Costs 10 [ICON_GOLD] Gold maintenance. Yields are disabled without GPUs, DRAM, or Power. +5 [ICON_SCIENCE] Science, +5 [ICON_PRODUCTION] Production. +3 [ICON_SCIENCE] Science per adjacent Data Center or Campus. +2 [ICON_PRODUCTION] Production per adjacent Solar Farm. +3 [ICON_PRODUCTION] Production per adjacent Microreactor. +5 [ICON_PRODUCTION] Production per adjacent Fusion Reactor.</Text>
 		</Row>
 		<Row Tag="LOC_DISTRICT_DATA_CENTER_ADJ_DATA_CENTER">
 			<Text>+{1_num} [ICON_SCIENCE] Science from the adjacent {1_Num : plural 1?Data Center; other?Data Centers;}</Text>
@@ -116,7 +148,7 @@
 			<Text>Data Centers Offline</Text>
 		</Row>
 		<Row Tag="LOC_NOTIFICATION_DATA_CENTER_OFFLINE_BODY">
-			<Text>Your Data Centers are not producing yields because your [ICON_RESOURCE_CHIPS] Chip stockpile is empty. Build Chip Fabs to resume production.</Text>
+			<Text>Your Data Centers are not producing yields because you have no [ICON_RESOURCE_GPU] GPUs or [ICON_RESOURCE_DRAM] DRAM. Build GPU/DRAM Specialization buildings to resume production.</Text>
 		</Row>
 
 		<!-- Convert to Inorganic Life Project -->

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameData>
+	<!-- Solar Farm: Power 2 → 8, Gold 1 → 2 -->
+	<ModifierArguments>
+		<Update>
+			<Where ModifierId="SOLAR_FARM_GENERATE_POWER" Name="Amount"/>
+			<Set Value="8"/>
+		</Update>
+		<Update>
+			<Where ModifierId="MERCHANT_RENEWABLE_ENERGY_SOLAR_FARM_GENERATE_POWER" Name="Amount"/>
+			<Set Value="8"/>
+		</Update>
+	</ModifierArguments>
+
+	<Improvement_YieldChanges>
+		<Update>
+			<Where ImprovementType="IMPROVEMENT_SOLAR_FARM" YieldType="YIELD_GOLD"/>
+			<Set YieldChange="2"/>
+		</Update>
+	</Improvement_YieldChanges>
+
+	<!-- Wind Farm: Power 2 → 6 -->
+	<ModifierArguments>
+		<Update>
+			<Where ModifierId="WIND_FARM_GENERATE_POWER" Name="Amount"/>
+			<Set Value="6"/>
+		</Update>
+		<Update>
+			<Where ModifierId="MERCHANT_RENEWABLE_ENERGY_WIND_FARM_GENERATE_POWER" Name="Amount"/>
+			<Set Value="6"/>
+		</Update>
+	</ModifierArguments>
+</GameData>

@@ -1,11 +1,12 @@
 -- Singularity_DataCenter.lua
--- Notifies the player when Data Centers are offline due to empty Chip stockpile.
--- Chip consumption and yield gating are handled by XML modifiers:
---   - Each Data Center reduces Chip extraction by 1/turn
---   - Yields are gated by REQUIREMENT_PLAYER_HAS_RESOURCE_OWNED (Chips)
+-- Notifies the player when Data Centers are offline due to empty GPU/DRAM stockpile.
+-- GPU/DRAM consumption and yield gating are handled by XML modifiers:
+--   - Each Data Center reduces GPU extraction by 1/turn and DRAM extraction by 1/turn
+--   - Yields are gated by REQUIREMENT_PLAYER_HAS_RESOURCE_OWNED (GPU + DRAM)
 
 local DISTRICT_DATA_CENTER = GameInfo.Districts["DISTRICT_DATA_CENTER"]
-local RESOURCE_CHIPS       = GameInfo.Resources["RESOURCE_CHIPS"]
+local RESOURCE_GPU         = GameInfo.Resources["RESOURCE_GPU"]
+local RESOURCE_DRAM        = GameInfo.Resources["RESOURCE_DRAM"]
 
 -- Check if a player has any Data Center district
 function FindFirstDataCenterCity(playerID)
@@ -28,7 +29,7 @@ end
 
 function OnPlayerTurnActivated_DataCenterCheck(playerID, isFirstTime)
 	if not isFirstTime then return end
-	if DISTRICT_DATA_CENTER == nil or RESOURCE_CHIPS == nil then return end
+	if DISTRICT_DATA_CENTER == nil then return end
 
 	local pPlayer = Players[playerID]
 	if pPlayer == nil or not pPlayer:IsMajor() then return end
@@ -37,12 +38,13 @@ function OnPlayerTurnActivated_DataCenterCheck(playerID, isFirstTime)
 	local dcCity = FindFirstDataCenterCity(playerID)
 	if dcCity == nil then return end -- No Data Centers, nothing to warn about
 
-	-- Check if player has Chips in stockpile
+	-- Check if player has GPUs and DRAM in stockpile
 	local pResources = pPlayer:GetResources()
-	local chipCount = pResources:GetResourceAmount(RESOURCE_CHIPS.Index)
-	if chipCount > 0 then return end -- Chips available, Data Centers are fine
+	local gpuCount = RESOURCE_GPU and pResources:GetResourceAmount(RESOURCE_GPU.Index) or 0
+	local dramCount = RESOURCE_DRAM and pResources:GetResourceAmount(RESOURCE_DRAM.Index) or 0
+	if gpuCount > 0 and dramCount > 0 then return end -- Resources available, Data Centers are fine
 
-	-- Player has Data Centers but no Chips — notify
+	-- Player has Data Centers but no GPUs or DRAM — notify
 	pcall(function()
 		if NotificationManager and NotificationTypes then
 			NotificationManager.SendNotification(
@@ -57,5 +59,24 @@ function OnPlayerTurnActivated_DataCenterCheck(playerID, isFirstTime)
 	end)
 end
 
+-- ---------------------------------------------------------------------------
+-- When a Data Center district is completed, attach -10 Power to the city.
+-- Each instance stacks, so 3 Data Centers = -30 Power.
+-- ---------------------------------------------------------------------------
+function OnDistrictBuildComplete(playerID, districtID, cityID, districtX, districtY, districtType, percentComplete)
+	if DISTRICT_DATA_CENTER == nil then return end
+	if districtType ~= DISTRICT_DATA_CENTER.Index then return end
+	if percentComplete ~= 100 then return end
+
+	local pPlayer = Players[playerID]
+	if pPlayer == nil then return end
+	local city = pPlayer:GetCities():FindID(cityID)
+	if city == nil then return end
+
+	city:AttachModifierByID("DATA_CENTER_CONSUME_POWER")
+	print("Singularity: Attached DATA_CENTER_CONSUME_POWER to city " .. city:GetName())
+end
+
+Events.DistrictBuildProgressChanged.Add(OnDistrictBuildComplete)
 Events.PlayerTurnActivated.Add(OnPlayerTurnActivated_DataCenterCheck)
 print("Singularity: DataCenter module loaded")

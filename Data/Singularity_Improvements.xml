@@ -29,7 +29,6 @@
 
 	<Improvement_YieldChanges>
 		<Row ImprovementType="IMPROVEMENT_MICROREACTOR" YieldType="YIELD_PRODUCTION" YieldChange="1"/>
-		<Row ImprovementType="IMPROVEMENT_MICROREACTOR" YieldType="YIELD_SCIENCE"    YieldChange="1"/>
 	</Improvement_YieldChanges>
 
 	<!-- Power generation via modifier (same pattern as Solar Farm) -->
@@ -44,7 +43,7 @@
 		<Row>
 			<ModifierId>MICROREACTOR_GENERATE_POWER</ModifierId>
 			<Name>Amount</Name>
-			<Value>4</Value>
+			<Value>10</Value>
 		</Row>
 	</ModifierArguments>
 

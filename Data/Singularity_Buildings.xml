@@ -5,6 +5,8 @@
 		<Row Type="BUILDING_ADVANCED_CHIP_FAB"  Kind="KIND_BUILDING"/>
 		<Row Type="BUILDING_EXPERT_CHIP_FAB"    Kind="KIND_BUILDING"/>
 		<Row Type="BUILDING_AI_DIVIDENDS"       Kind="KIND_BUILDING"/>
+		<Row Type="BUILDING_GPU_SPECIALIZATION"  Kind="KIND_BUILDING"/>
+		<Row Type="BUILDING_DRAM_SPECIALIZATION" Kind="KIND_BUILDING"/>
 		<Row Type="BUILDING_FUSION_CORE"        Kind="KIND_BUILDING"/>
 		<Row Type="BUILDING_INORGANIC_CITY"     Kind="KIND_BUILDING"/>
 		<Row Type="BUILDING_DYSON_Q1_POWER"    Kind="KIND_BUILDING"/>
@@ -47,6 +49,30 @@
 			 PurchaseYield="YIELD_GOLD"
 			 Cost="800"
 			 Maintenance="4"
+			 AdvisorType="ADVISOR_GENERIC"
+			 CitizenSlots="1"/>
+
+		<!-- GPU Specialization — Industrial Zone, mutually exclusive with DRAM -->
+		<Row BuildingType="BUILDING_GPU_SPECIALIZATION"
+			 Name="LOC_BUILDING_GPU_SPECIALIZATION_NAME"
+			 Description="LOC_BUILDING_GPU_SPECIALIZATION_DESCRIPTION"
+			 PrereqTech="TECH_ROBOTICS"
+			 PrereqDistrict="DISTRICT_INDUSTRIAL_ZONE"
+			 PurchaseYield="YIELD_GOLD"
+			 Cost="600"
+			 Maintenance="3"
+			 AdvisorType="ADVISOR_GENERIC"
+			 CitizenSlots="1"/>
+
+		<!-- DRAM Specialization — Industrial Zone, mutually exclusive with GPU -->
+		<Row BuildingType="BUILDING_DRAM_SPECIALIZATION"
+			 Name="LOC_BUILDING_DRAM_SPECIALIZATION_NAME"
+			 Description="LOC_BUILDING_DRAM_SPECIALIZATION_DESCRIPTION"
+			 PrereqTech="TECH_ROBOTICS"
+			 PrereqDistrict="DISTRICT_INDUSTRIAL_ZONE"
+			 PurchaseYield="YIELD_GOLD"
+			 Cost="600"
+			 Maintenance="3"
 			 AdvisorType="ADVISOR_GENERIC"
 			 CitizenSlots="1"/>
 
@@ -115,7 +141,15 @@
 	<BuildingPrereqs>
 		<Row Building="BUILDING_ADVANCED_CHIP_FAB" PrereqBuilding="BUILDING_CHIP_FAB"/>
 		<Row Building="BUILDING_EXPERT_CHIP_FAB"   PrereqBuilding="BUILDING_ADVANCED_CHIP_FAB"/>
+		<Row Building="BUILDING_GPU_SPECIALIZATION" PrereqBuilding="BUILDING_CHIP_FAB"/>
+		<Row Building="BUILDING_DRAM_SPECIALIZATION" PrereqBuilding="BUILDING_CHIP_FAB"/>
 	</BuildingPrereqs>
+
+	<!-- GPU and DRAM are mutually exclusive -->
+	<MutuallyExclusiveBuildings>
+		<Row Building="BUILDING_GPU_SPECIALIZATION" MutuallyExclusiveBuilding="BUILDING_DRAM_SPECIALIZATION"/>
+		<Row Building="BUILDING_DRAM_SPECIALIZATION" MutuallyExclusiveBuilding="BUILDING_GPU_SPECIALIZATION"/>
+	</MutuallyExclusiveBuildings>
 
 	<!-- Chip Fab buildings produce Chips (strategic resource) per turn -->
 	<!-- Incremental: +1, +2, +2 so totals are 1/3/5 per city -->
@@ -138,6 +172,16 @@
 		</Row>
 		<Row>
 			<ModifierId>EXPERT_CHIP_FAB_PRODUCE_CHIPS</ModifierId>
+			<ModifierType>MODIFIER_SINGLE_CITY_ADJUST_FREE_RESOURCE_EXTRACTION</ModifierType>
+		</Row>
+		<!-- GPU Specialization: produce 1 GPU per turn -->
+		<Row>
+			<ModifierId>GPU_SPEC_PRODUCE_GPU</ModifierId>
+			<ModifierType>MODIFIER_SINGLE_CITY_ADJUST_FREE_RESOURCE_EXTRACTION</ModifierType>
+		</Row>
+		<!-- DRAM Specialization: produce 1 DRAM per turn -->
+		<Row>
+			<ModifierId>DRAM_SPEC_PRODUCE_DRAM</ModifierId>
 			<ModifierType>MODIFIER_SINGLE_CITY_ADJUST_FREE_RESOURCE_EXTRACTION</ModifierType>
 		</Row>
 		<!-- Silicon consumption handled by Lua + custom TopPanel UI -->
@@ -187,15 +231,19 @@
 		<Row><ModifierId>ADVANCED_CHIP_FAB_PRODUCE_CHIPS</ModifierId><Name>Amount</Name><Value>2</Value></Row>
 		<Row><ModifierId>EXPERT_CHIP_FAB_PRODUCE_CHIPS</ModifierId><Name>ResourceType</Name><Value>RESOURCE_CHIPS</Value></Row>
 		<Row><ModifierId>EXPERT_CHIP_FAB_PRODUCE_CHIPS</ModifierId><Name>Amount</Name><Value>2</Value></Row>
-		<Row><ModifierId>FUSION_CORE_GENERATE_POWER</ModifierId><Name>Amount</Name><Value>16</Value></Row>
+		<Row><ModifierId>GPU_SPEC_PRODUCE_GPU</ModifierId><Name>ResourceType</Name><Value>RESOURCE_GPU</Value></Row>
+		<Row><ModifierId>GPU_SPEC_PRODUCE_GPU</ModifierId><Name>Amount</Name><Value>1</Value></Row>
+		<Row><ModifierId>DRAM_SPEC_PRODUCE_DRAM</ModifierId><Name>ResourceType</Name><Value>RESOURCE_DRAM</Value></Row>
+		<Row><ModifierId>DRAM_SPEC_PRODUCE_DRAM</ModifierId><Name>Amount</Name><Value>1</Value></Row>
+		<Row><ModifierId>FUSION_CORE_GENERATE_POWER</ModifierId><Name>Amount</Name><Value>48</Value></Row>
 		<Row><ModifierId>FUSION_CORE_GENERATE_POWER</ModifierId><Name>SourceType</Name><Value>FREE_POWER_SOURCE_NUCLEAR</Value></Row>
-		<Row><ModifierId>DYSON_Q1_GENERATE_POWER</ModifierId><Name>Amount</Name><Value>30</Value></Row>
+		<Row><ModifierId>DYSON_Q1_GENERATE_POWER</ModifierId><Name>Amount</Name><Value>50</Value></Row>
 		<Row><ModifierId>DYSON_Q1_GENERATE_POWER</ModifierId><Name>SourceType</Name><Value>FREE_POWER_SOURCE_SOLAR</Value></Row>
-		<Row><ModifierId>DYSON_Q2_GENERATE_POWER</ModifierId><Name>Amount</Name><Value>30</Value></Row>
+		<Row><ModifierId>DYSON_Q2_GENERATE_POWER</ModifierId><Name>Amount</Name><Value>50</Value></Row>
 		<Row><ModifierId>DYSON_Q2_GENERATE_POWER</ModifierId><Name>SourceType</Name><Value>FREE_POWER_SOURCE_SOLAR</Value></Row>
-		<Row><ModifierId>DYSON_Q3_GENERATE_POWER</ModifierId><Name>Amount</Name><Value>30</Value></Row>
+		<Row><ModifierId>DYSON_Q3_GENERATE_POWER</ModifierId><Name>Amount</Name><Value>50</Value></Row>
 		<Row><ModifierId>DYSON_Q3_GENERATE_POWER</ModifierId><Name>SourceType</Name><Value>FREE_POWER_SOURCE_SOLAR</Value></Row>
-		<Row><ModifierId>DYSON_Q4_GENERATE_POWER</ModifierId><Name>Amount</Name><Value>30</Value></Row>
+		<Row><ModifierId>DYSON_Q4_GENERATE_POWER</ModifierId><Name>Amount</Name><Value>50</Value></Row>
 		<Row><ModifierId>DYSON_Q4_GENERATE_POWER</ModifierId><Name>SourceType</Name><Value>FREE_POWER_SOURCE_SOLAR</Value></Row>
 	</ModifierArguments>
 
@@ -204,6 +252,8 @@
 		<Row BuildingType="BUILDING_CHIP_FAB"          ModifierId="CHIP_FAB_PRODUCE_CHIPS"/>
 		<Row BuildingType="BUILDING_ADVANCED_CHIP_FAB"  ModifierId="ADVANCED_CHIP_FAB_PRODUCE_CHIPS"/>
 		<Row BuildingType="BUILDING_EXPERT_CHIP_FAB"    ModifierId="EXPERT_CHIP_FAB_PRODUCE_CHIPS"/>
+		<Row BuildingType="BUILDING_GPU_SPECIALIZATION"  ModifierId="GPU_SPEC_PRODUCE_GPU"/>
+		<Row BuildingType="BUILDING_DRAM_SPECIALIZATION" ModifierId="DRAM_SPEC_PRODUCE_DRAM"/>
 		<Row BuildingType="BUILDING_FUSION_CORE"        ModifierId="FUSION_CORE_GENERATE_POWER"/>
 		<Row BuildingType="BUILDING_DYSON_Q1_POWER"    ModifierId="DYSON_Q1_GENERATE_POWER"/>
 		<Row BuildingType="BUILDING_DYSON_Q2_POWER"    ModifierId="DYSON_Q2_GENERATE_POWER"/>
@@ -217,7 +267,10 @@
 		<Row BuildingType="BUILDING_ADVANCED_CHIP_FAB"  YieldType="YIELD_SCIENCE"    YieldChange="1"/>
 		<Row BuildingType="BUILDING_EXPERT_CHIP_FAB"    YieldType="YIELD_PRODUCTION" YieldChange="4"/>
 		<Row BuildingType="BUILDING_EXPERT_CHIP_FAB"    YieldType="YIELD_SCIENCE"    YieldChange="2"/>
+		<Row BuildingType="BUILDING_GPU_SPECIALIZATION"  YieldType="YIELD_PRODUCTION" YieldChange="2"/>
+		<Row BuildingType="BUILDING_GPU_SPECIALIZATION"  YieldType="YIELD_SCIENCE"    YieldChange="1"/>
+		<Row BuildingType="BUILDING_DRAM_SPECIALIZATION" YieldType="YIELD_PRODUCTION" YieldChange="2"/>
+		<Row BuildingType="BUILDING_DRAM_SPECIALIZATION" YieldType="YIELD_SCIENCE"    YieldChange="1"/>
 		<Row BuildingType="BUILDING_AI_DIVIDENDS"       YieldType="YIELD_GOLD"       YieldChange="10"/>
-		<Row BuildingType="BUILDING_FUSION_CORE"        YieldType="YIELD_SCIENCE"    YieldChange="3"/>
 	</Building_YieldChanges>
 </GameData>

@@ -33,11 +33,49 @@
 		<Row Name="ICON_ATLAS_CHIPS_FOW" IconSize="32"  IconsPerRow="1" IconsPerColumn="1" Filename="chips_fow_32.dds"/>
 		<Row Name="ICON_ATLAS_CHIPS_FOW" IconSize="22"  IconsPerRow="1" IconsPerColumn="1" Filename="chips_fow_22.dds"/>
 
+		<!-- GPU resource icon atlas -->
+		<Row Name="ICON_ATLAS_GPU" IconSize="256" IconsPerRow="1" IconsPerColumn="1" Filename="gpu_256.dds"/>
+		<Row Name="ICON_ATLAS_GPU" IconSize="80"  IconsPerRow="1" IconsPerColumn="1" Filename="gpu_80.dds"/>
+		<Row Name="ICON_ATLAS_GPU" IconSize="50"  IconsPerRow="1" IconsPerColumn="1" Filename="gpu_50.dds"/>
+		<Row Name="ICON_ATLAS_GPU" IconSize="38"  IconsPerRow="1" IconsPerColumn="1" Filename="gpu_38.dds"/>
+		<Row Name="ICON_ATLAS_GPU" IconSize="32"  IconsPerRow="1" IconsPerColumn="1" Filename="gpu_32.dds"/>
+		<Row Name="ICON_ATLAS_GPU" IconSize="22"  IconsPerRow="1" IconsPerColumn="1" Filename="gpu_22.dds"/>
+
+		<!-- GPU FOW atlas -->
+		<Row Name="ICON_ATLAS_GPU_FOW" IconSize="256" IconsPerRow="1" IconsPerColumn="1" Filename="gpu_fow_256.dds"/>
+		<Row Name="ICON_ATLAS_GPU_FOW" IconSize="80"  IconsPerRow="1" IconsPerColumn="1" Filename="gpu_fow_80.dds"/>
+		<Row Name="ICON_ATLAS_GPU_FOW" IconSize="50"  IconsPerRow="1" IconsPerColumn="1" Filename="gpu_fow_50.dds"/>
+		<Row Name="ICON_ATLAS_GPU_FOW" IconSize="38"  IconsPerRow="1" IconsPerColumn="1" Filename="gpu_fow_38.dds"/>
+		<Row Name="ICON_ATLAS_GPU_FOW" IconSize="32"  IconsPerRow="1" IconsPerColumn="1" Filename="gpu_fow_32.dds"/>
+		<Row Name="ICON_ATLAS_GPU_FOW" IconSize="22"  IconsPerRow="1" IconsPerColumn="1" Filename="gpu_fow_22.dds"/>
+
+		<!-- DRAM resource icon atlas -->
+		<Row Name="ICON_ATLAS_DRAM" IconSize="256" IconsPerRow="1" IconsPerColumn="1" Filename="dram_256.dds"/>
+		<Row Name="ICON_ATLAS_DRAM" IconSize="80"  IconsPerRow="1" IconsPerColumn="1" Filename="dram_80.dds"/>
+		<Row Name="ICON_ATLAS_DRAM" IconSize="50"  IconsPerRow="1" IconsPerColumn="1" Filename="dram_50.dds"/>
+		<Row Name="ICON_ATLAS_DRAM" IconSize="38"  IconsPerRow="1" IconsPerColumn="1" Filename="dram_38.dds"/>
+		<Row Name="ICON_ATLAS_DRAM" IconSize="32"  IconsPerRow="1" IconsPerColumn="1" Filename="dram_32.dds"/>
+		<Row Name="ICON_ATLAS_DRAM" IconSize="22"  IconsPerRow="1" IconsPerColumn="1" Filename="dram_22.dds"/>
+
+		<!-- DRAM FOW atlas -->
+		<Row Name="ICON_ATLAS_DRAM_FOW" IconSize="256" IconsPerRow="1" IconsPerColumn="1" Filename="dram_fow_256.dds"/>
+		<Row Name="ICON_ATLAS_DRAM_FOW" IconSize="80"  IconsPerRow="1" IconsPerColumn="1" Filename="dram_fow_80.dds"/>
+		<Row Name="ICON_ATLAS_DRAM_FOW" IconSize="50"  IconsPerRow="1" IconsPerColumn="1" Filename="dram_fow_50.dds"/>
+		<Row Name="ICON_ATLAS_DRAM_FOW" IconSize="38"  IconsPerRow="1" IconsPerColumn="1" Filename="dram_fow_38.dds"/>
+		<Row Name="ICON_ATLAS_DRAM_FOW" IconSize="32"  IconsPerRow="1" IconsPerColumn="1" Filename="dram_fow_32.dds"/>
+		<Row Name="ICON_ATLAS_DRAM_FOW" IconSize="22"  IconsPerRow="1" IconsPerColumn="1" Filename="dram_fow_22.dds"/>
+
 		<!-- Silicon font icon atlas (no background, for top bar) - Baseline="6" matches vanilla alignment -->
 		<Row Name="ICON_ATLAS_SILICON_FONT" Baseline="6" IconSize="22" IconsPerRow="1" IconsPerColumn="1" Filename="silicon_font_22.dds"/>
 
 		<!-- Chips font icon atlas (no background, for top bar) -->
 		<Row Name="ICON_ATLAS_CHIPS_FONT" Baseline="6" IconSize="22" IconsPerRow="1" IconsPerColumn="1" Filename="chips_font_22.dds"/>
+
+		<!-- GPU font icon atlas -->
+		<Row Name="ICON_ATLAS_GPU_FONT" Baseline="6" IconSize="22" IconsPerRow="1" IconsPerColumn="1" Filename="gpu_font_22.dds"/>
+
+		<!-- DRAM font icon atlas -->
+		<Row Name="ICON_ATLAS_DRAM_FONT" Baseline="6" IconSize="22" IconsPerRow="1" IconsPerColumn="1" Filename="dram_font_22.dds"/>
 	</IconTextureAtlases>
 
 	<IconDefinitions>
@@ -50,6 +88,22 @@
 		<Row Name="ICON_RESOURCE_CHIPS"     Atlas="ICON_ATLAS_CHIPS"     Index="0"/>
 		<Row Name="ICON_RESOURCE_CHIPS_FOW" Atlas="ICON_ATLAS_CHIPS_FOW" Index="0"/>
 		<Row Name="RESOURCE_CHIPS"          Atlas="ICON_ATLAS_CHIPS_FONT" Index="0"/>
+
+		<!-- GPU resource - custom icons -->
+		<Row Name="ICON_RESOURCE_GPU"     Atlas="ICON_ATLAS_GPU"     Index="0"/>
+		<Row Name="ICON_RESOURCE_GPU_FOW" Atlas="ICON_ATLAS_GPU_FOW" Index="0"/>
+		<Row Name="RESOURCE_GPU"          Atlas="ICON_ATLAS_GPU_FONT" Index="0"/>
+
+		<!-- DRAM resource - custom icons -->
+		<Row Name="ICON_RESOURCE_DRAM"     Atlas="ICON_ATLAS_DRAM"     Index="0"/>
+		<Row Name="ICON_RESOURCE_DRAM_FOW" Atlas="ICON_ATLAS_DRAM_FOW" Index="0"/>
+		<Row Name="RESOURCE_DRAM"          Atlas="ICON_ATLAS_DRAM_FONT" Index="0"/>
+
+		<!-- Placeholder: reuse Electronics Factory icon (index 27) for GPU/DRAM Specialization -->
+		<Row Name="ICON_BUILDING_GPU_SPECIALIZATION"      Atlas="ICON_ATLAS_BUILDINGS" Index="27"/>
+		<Row Name="ICON_BUILDING_GPU_SPECIALIZATION_FOW"  Atlas="ICON_ATLAS_BUILDINGS" Index="27"/>
+		<Row Name="ICON_BUILDING_DRAM_SPECIALIZATION"     Atlas="ICON_ATLAS_BUILDINGS" Index="27"/>
+		<Row Name="ICON_BUILDING_DRAM_SPECIALIZATION_FOW" Atlas="ICON_ATLAS_BUILDINGS" Index="27"/>
 
 		<!-- Placeholder: reuse Electronics Factory icon (index 27) for all Chip Fabs -->
 		<Row Name="ICON_BUILDING_CHIP_FAB"              Atlas="ICON_ATLAS_BUILDINGS" Index="27"/>

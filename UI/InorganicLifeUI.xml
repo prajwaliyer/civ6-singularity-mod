@@ -12,28 +12,6 @@
 				   Style="FontNormal12" ColorSet="White"/>
 			<Label ID="TurnsToGrowthLabel" String=""
 				   Style="FontNormal12" ColorSet="White"/>
-			<Label ID="DebugLabel1" String=""
-				   Style="FontNormal12" ColorSet="White"/>
-			<Label ID="DebugLabel2" String=""
-				   Style="FontNormal12" ColorSet="White"/>
-		</Stack>
-	</Grid>
-	<Grid ID="ArtDebugPanel" Style="CityPanel9Slice"
-		  Hidden="false" Anchor="L,T" Offset="10,200" Size="500,300">
-		<Stack ID="ArtDebugStack" Anchor="C,C" Offset="0,0"
-			   StackGrowth="Bottom" Padding="2">
-			<Label ID="ArtDebugTitle" String="[COLOR_GREEN]== ART DEBUG ==[ENDCOLOR]"
-				   Style="FontNormal14" ColorSet="White"/>
-			<Label ID="ArtDebugLine1" String="" Style="FontNormal11" ColorSet="White"/>
-			<Label ID="ArtDebugLine2" String="" Style="FontNormal11" ColorSet="White"/>
-			<Label ID="ArtDebugLine3" String="" Style="FontNormal11" ColorSet="White"/>
-			<Label ID="ArtDebugLine4" String="" Style="FontNormal11" ColorSet="White"/>
-			<Label ID="ArtDebugLine5" String="" Style="FontNormal11" ColorSet="White"/>
-			<Label ID="ArtDebugLine6" String="" Style="FontNormal11" ColorSet="White"/>
-			<Label ID="ArtDebugLine7" String="" Style="FontNormal11" ColorSet="White"/>
-			<Label ID="ArtDebugLine8" String="" Style="FontNormal11" ColorSet="White"/>
-			<Label ID="ArtDebugLine9" String="" Style="FontNormal11" ColorSet="White"/>
-			<Label ID="ArtDebugLine10" String="" Style="FontNormal11" ColorSet="White"/>
 		</Stack>
 	</Grid>
 </Context>
